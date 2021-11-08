@@ -1,0 +1,7 @@
+172.18.0.1 - - [08/Nov/2021:10:30:35 +0000] "GET /infos.php HTTP/1.1" 200 26236 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+172.18.0.1 - - [08/Nov/2021:10:30:35 +0000] "GET /favicon.ico HTTP/1.1" 404 489 "http://localhost:8080/infos.php" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+172.18.0.1 - - [08/Nov/2021:10:30:38 +0000] "GET /test-pdo/test-PDO.php HTTP/1.1" 200 560 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+172.18.0.1 - - [08/Nov/2021:10:31:27 +0000] "-" 408 0 "-" "-"
+172.18.0.1 - - [08/Nov/2021:10:36:23 +0000] "GET /test-pdo/test-PDO.php HTTP/1.1" 200 561 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+172.18.0.1 - - [08/Nov/2021:10:36:41 +0000] "GET /exo01/index.php HTTP/1.1" 200 247 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
+172.18.0.1 - - [08/Nov/2021:10:36:47 +0000] "GET /exo01/index.php HTTP/1.1" 200 247 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/95.0.4638.69 Safari/537.36"
