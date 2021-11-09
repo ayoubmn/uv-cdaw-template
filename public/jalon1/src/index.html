@@ -21,6 +21,7 @@
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
+    <link href="css/index.css" rel="stylesheet" />
 
 </head>
 
@@ -28,7 +29,7 @@
     <!-- Navigation-->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container px-4 px-lg-5">
-            <a class="navbar-brand" href="#!">NetFlex</a>
+            <a class="navbar-brand" href="#">NetFlex</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -60,7 +61,6 @@
                 <!--login form-->
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
-                        <i class="bi-file-person-fill me-1"></i>
                         Login/Signup
                     </button>
                 </form>
@@ -71,79 +71,109 @@
 
     <!-- Header-->
     <header class="bg-dark py-5">
-        <div class="container px-4 px-lg-5 my-5">
+        <div class="container px-4 px-lg-12 ">
             <div class="text-center text-white">
                 <!--Carousel Wrapper-->
                 <div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
                     <!--Controls-->
+                    <div class="controls-top d-none d-md-block d-lg-block">
+                        <a class="carousel-control-prev" style="width:10%;" href="#multi-item-example" role="button"
+                            data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" style="width:10%;" href="#multi-item-example" role="button"
+                            data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                    <!--/.Controls-->
+
+                    <!--Controls
                     <div class="controls-top">
                         <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i
                                 class="fa fa-chevron-left"></i></a>
                         <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
                                 class="fa fa-chevron-right"></i></a>
                     </div>
-                    <!--/.Controls-->
+                    -->
 
-                    <!--Indicators-->
+
+
+                    <!--
                     <ol class="carousel-indicators">
                         <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
                         <li data-target="#multi-item-example" data-slide-to="1"></li>
                         <li data-target="#multi-item-example" data-slide-to="2"></li>
                     </ol>
-                    <!--/.Indicators-->
+                    -->
 
                     <!--Slides-->
                     <div class="carousel-inner" role="listbox">
 
                         <!--First slide-->
                         <div class="carousel-item active">
-
                             <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card mb-2">
-                                        <img class="card-img-top"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
-                                            alt="Card image cap">
+                                <div class="col-md-3">
+                                    <div class="card movie_card">
+                                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                                            class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h4 class="card-title">Card title</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk
-                                                of the
-                                                card's content.</p>
-                                            <a class="btn btn-primary">Button</a>
+                                            <i class="fas fa-play play_button" data-toggle="tooltip"
+                                                data-placement="bottom" title="Play Trailer">
+                                            </i>
+                                            <h5 class="card-title">Captain Marvel</h5>
+                                            <span class="movie_info">2019</span>
+                                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                                10</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 clearfix d-none d-md-block">
-                                    <div class="card mb-2">
-                                        <img class="card-img-top"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
-                                            alt="Card image cap">
+                                <div class="col-md-3 clearfix d-none d-md-block">
+                                    <div class="card  movie_card">
+                                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                                            class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h4 class="card-title">Card title</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk
-                                                of the
-                                                card's content.</p>
-                                            <a class="btn btn-primary">Button</a>
+                                            <i class="fas fa-play play_button" data-toggle="tooltip"
+                                                data-placement="bottom" title="Play Trailer">
+                                            </i>
+                                            <h5 class="card-title">Captain Marvel</h5>
+                                            <span class="movie_info">2019</span>
+                                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                                10</span>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div class="col-md-4 clearfix d-none d-md-block">
-                                    <div class="card mb-2">
-                                        <img class="card-img-top"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
-                                            alt="Card image cap">
+                                <div class="col-md-3 clearfix d-none d-md-block">
+                                    <div class="card  movie_card">
+                                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                                            class="card-img-top" alt="...">
                                         <div class="card-body">
-                                            <h4 class="card-title">Card title</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk
-                                                of the
-                                                card's content.</p>
-                                            <a class="btn btn-primary">Button</a>
+                                            <i class="fas fa-play play_button" data-toggle="tooltip"
+                                                data-placement="bottom" title="Play Trailer">
+                                            </i>
+                                            <h5 class="card-title">Captain Marvel</h5>
+                                            <span class="movie_info">2019</span>
+                                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                                10</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-3 clearfix d-none d-md-block">
+                                    <div class="card  movie_card">
+                                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                                            class="card-img-top" alt="...">
+                                        <div class="card-body">
+                                            <i class="fas fa-play play_button" data-toggle="tooltip"
+                                                data-placement="bottom" title="Play Trailer">
+                                            </i>
+                                            <h5 class="card-title">Captain Marvel</h5>
+                                            <span class="movie_info">2019</span>
+                                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                                10</span>
                                         </div>
                                     </div>
                                 </div>
@@ -211,56 +241,6 @@
                         <!--Third slide-->
                         <div class="carousel-item">
 
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card mb-2">
-                                        <img class="card-img-top"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Card title</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk
-                                                of the
-                                                card's content.</p>
-                                            <a class="btn btn-primary">Button</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 clearfix d-none d-md-block">
-                                    <div class="card mb-2">
-                                        <img class="card-img-top"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Card title</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk
-                                                of the
-                                                card's content.</p>
-                                            <a class="btn btn-primary">Button</a>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 clearfix d-none d-md-block">
-                                    <div class="card mb-2">
-                                        <img class="card-img-top"
-                                            src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg"
-                                            alt="Card image cap">
-                                        <div class="card-body">
-                                            <h4 class="card-title">Card title</h4>
-                                            <p class="card-text">Some quick example text to build on the card title and
-                                                make up the bulk
-                                                of the
-                                                card's content.</p>
-                                            <a class="btn btn-primary">Button</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
                         <!--/.Third slide-->
 
@@ -274,213 +254,165 @@
     </header>
     <!-- Section-->
     <section class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col text-center">
+                    <button type="button" class="btn btn-primary float-right">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-sort-up" viewBox="0 0 16 16">
+                            <path
+                                d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z">
+                            </path>
+                        </svg>
+                        Sort by date
+                    </button>
+                </div>
+            </div>
+        </div>
+
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                $40.00 - $80.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Sale Item</h5>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$50.00</span>
-                                $25.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Fancy Product</h5>
-                                <!-- Product price-->
-                                $120.00 - $280.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">View options</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Sale badge-->
-                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale
-                        </div>
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Special Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                <span class="text-muted text-decoration-line-through">$20.00</span>
-                                $18.00
-                            </div>
-                        </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
                 <div class="col mb-5">
-                    <div class="card h-100">
-                        <!-- Product image-->
-                        <img class="card-img-top" src="https://dummyimage.com/450x300/dee2e6/6c757d.jpg" alt="..." />
-                        <!-- Product details-->
-                        <div class="card-body p-4">
-                            <div class="text-center">
-                                <!-- Product name-->
-                                <h5 class="fw-bolder">Popular Item</h5>
-                                <!-- Product reviews-->
-                                <div class="d-flex justify-content-center small text-warning mb-2">
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                    <div class="bi-star-fill"></div>
-                                </div>
-                                <!-- Product price-->
-                                $40.00
-                            </div>
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
-                        <!-- Product actions-->
-                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                            <div class="text-center"><a class="btn btn-outline-dark mt-auto" href="#">Add to cart</a>
-                            </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col mb-5">
+                    <div class="card movie_card">
+                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
+                            class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Captain Marvel</h5>
+                            <span class="movie_info">2019</span>
+                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
+                                10</span>
                         </div>
                     </div>
                 </div>
@@ -490,7 +422,7 @@
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
-            <p class="m-0 text-center text-white">Copyright &copy; Your Website 2021</p>
+            <p class="m-0 text-center text-white">Copyright &copy; CDAW 2021</p>
         </div>
     </footer>
     <!-- Bootstrap core JS-->
