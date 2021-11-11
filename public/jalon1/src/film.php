@@ -22,11 +22,18 @@
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet" />
+    <link href="css/film.scss" rel="stylesheet" />
+
+
 
     <?php 
-        $str = file_get_contents("data.json"); 
-        $json = json_decode($str,true);
+    if (isset($_GET['title'])) {
 
+        $title=$_GET['title'];
+        $pic=$_GET['pic'];
+        $date=$_GET['date'];
+        $link=$_GET['link'];
+    }
     ?>
 
 </head>
@@ -66,42 +73,48 @@
                 <!--login form-->
                 <form class="d-flex">
                     <button class="btn btn-outline-dark" type="submit">
-                        <a href="login.php" style="text-decoration:none;" >Login/Signup</a>
+                        <a href="login.php" style="text-decoration:none;">Login/Signup</a>
                     </button>
                 </form>
             </div>
         </div>
     </nav>
 
-
-        <div id="login">
-            <h3 class="text-center text-white pt-5">Se connecter</h3>
-            <div class="container">
-                <div id="login-row" class="row justify-content-center align-items-center">
-                    <div id="login-column" class="col-md-6">
-                        <div id="login-box" class="col-md-12">
-                            <form id="login-form" class="form" action="" method="post">
-                                <h3 class="text-center text-info">Se connecter</h3>
-                                <div class="form-group mb-2">
-                                    <label for="email" class="text-info">Email</label><br>
-                                    <input type="text" name="username" id="email" class="form-control">
-                                </div>
-                                <div class="form-group mb-4">
-                                    <label for="password" class="text-info">Mot de passe</label><br>
-                                    <input type="text" name="password" id="password" class="form-control">
-                                </div>
-                                <div id="register-link" class="text-right">
-                                    Vous n'êtes pas encore inscrits ? Inscrivez-vous<a href="register.php" class="text-info"> ici</a>.
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+<!-- ************************************************************* -->
+<div class="movie_card" style="background: url('<?php echo $pic ?>');">
+  <div class="info_section">
+    <div class="movie_header">
+      <img class="locandina" src="<?php echo $pic ?>"/>
+      <h1><?php echo $title ?></h1>
+      <h4><?php echo $date ?></h4>
+      <span class="minutes">117 min</span>
+      <p class="type">Action, Crime, Fantasy</p>
+    </div>
+    <div class="movie_desc">
+      <p class="text">
+        Set in a world where fantasy creatures live side by side with humans. A human cop is forced to work with an Orc to find a weapon everyone is prepared to kill for. 
+      </p>
+    </div>
+    <div class="movie_social">
+      <ul>
+        <li><i class="material-icons">share</i></li>
+        <li><i class="material-icons"></i></li>
+        <li><i class="material-icons">chat_bubble</i></li>
+      </ul>
+    </div>
+  </div>
+  <div class="blur_back bright_back"></div>
+</div>
+<!-- ************************************************************* -->
+<div class="container" >
+    <iframe width="1120" height="630"  src="<?php echo $link ?>" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+</div>
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container">
+            <p class="m-0 text-center text-white">Copyright &copy; CDAW 2021</p>
         </div>
-
-
-
+    </footer>
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- Core theme JS-->

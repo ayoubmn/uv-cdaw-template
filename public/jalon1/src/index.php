@@ -18,6 +18,8 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
 
+    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
@@ -29,6 +31,29 @@
 
     ?>
 
+    <script>
+
+        function sendElement(pic,title,date,link){
+            window.location.replace("/jalon1/src/film.php?"+"pic="+pic+"&title="+title+"&date="+date+"&link="+link);
+/*
+            $.ajax({
+                type: 'POST',
+                url: '/jalon1/src/film.php',
+                data: {film: film},
+                dataType: 'json'
+            })
+            .done( function( data ) {
+                console.log('done');
+                console.log(data);
+            })
+            .fail( function( data ) {
+                console.log('fail');
+                console.log(data);
+            });
+*/
+
+        }
+    </script>
 </head>
 
 <body>
@@ -325,7 +350,7 @@
         <div class="container px-4 px-lg-5 mt-5">
             <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
                 <?php foreach ($json as $key1 => $value1): ?>
-                <a href="" style="text-decoration:none;">
+                <a style="text-decoration:none;" onclick="sendElement('<?php print_r($json[$key1]['pic']) ?>','<?php print_r($json[$key1]['title'])?>','<?php print_r($json[$key1]['date'])?>','<?php print_r($json[$key1]['link'])?>')" >
                     <div class="col mb-5">
                         <div class="card movie_card">
                             <img src="<?php print_r($json[$key1]["pic"]);?>"
