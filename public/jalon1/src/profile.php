@@ -18,12 +18,11 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.6.0/mdb.min.css" rel="stylesheet" />
 
-    <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-
 
     <!-- Core theme CSS (includes Bootstrap)-->
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/index.css" rel="stylesheet" />
+    <link href="css/profile.css" rel="stylesheet" />
 
     <?php 
         $str = file_get_contents("data.json"); 
@@ -31,29 +30,6 @@
 
     ?>
 
-    <script>
-
-        function sendElement(pic,title,date,link){
-            window.location.replace("/jalon1/src/film.php?"+"pic="+pic+"&title="+title+"&date="+date+"&link="+link);
-/*
-            $.ajax({
-                type: 'POST',
-                url: '/jalon1/src/film.php',
-                data: {film: film},
-                dataType: 'json'
-            })
-            .done( function( data ) {
-                console.log('done');
-                console.log(data);
-            })
-            .fail( function( data ) {
-                console.log('fail');
-                console.log(data);
-            });
-*/
-
-        }
-    </script>
 </head>
 
 <body>
@@ -89,20 +65,39 @@
                 </div>
 
                 <!--login form-->
-                <button class="btn " type="submit">
-                    <a href="profile.php" style="text-decoration:none;"><i class="fas fa-user"></i></a>
-                </button>
-
                 <form class="d-flex">
-                    <button class="btn " type="submit">
-                        <a href="login.php" style="text-decoration:none;">Login/Signup</a>
+                    <button class="btn btn-outline-dark" type="submit">
+                        <a href="index.php" style="text-decoration:none;">Logout</a>
                     </button>
                 </form>
             </div>
         </div>
     </nav>
 
+<!-- ************************************************************* -->
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+<div class="container profile-page">
+            <div class="card profile-header">
+                <div class="body">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4 col-12">
+                            <div class="profile-image float-md-right"> <img style="margin-left: auto;margin-right: auto;display: block;" src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""> </div>
+                        </div>
+                        <div class="col-lg-8 col-md-8 col-12">
+                            <h4 class="m-t-0 m-b-0"><strong>Michael</strong> Deo</h4>
+                            <span class="job_post">Michael.Deo1992</span>
+                            <p class="job_post">m.doa@gmail.com</p>
+                            <p>16/08/1992</p>
+                            <div>
+                                <button class="btn btn-primary btn-round">Change email</button>
+                                <button class="btn btn-primary btn-round btn-simple">Change password</button>
+                                <button class="btn btn-danger btn-round btn-simple">Delete account</button>
 
+                            </div>
+                        </div>                
+                    </div>
+                </div>  
+            <h2>History</h2>
     <!-- Header-->
     <header class="bg-dark py-5">
         <div class="container px-4 px-lg-12 ">
@@ -331,62 +326,15 @@
                 <!--/.Carousel Wrapper-->
             </div>
         </div>
-    </header>
-
-    <!-- Section-->
-    <section class="py-5">
-        <div class="container">
-            <div class="row">
-                <div class="col text-center">
-                    <button type="button" class="btn btn-primary float-right">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-sort-up" viewBox="0 0 16 16">
-                            <path
-                                d="M3.5 12.5a.5.5 0 0 1-1 0V3.707L1.354 4.854a.5.5 0 1 1-.708-.708l2-1.999.007-.007a.498.498 0 0 1 .7.006l2 2a.5.5 0 1 1-.707.708L3.5 3.707V12.5zm3.5-9a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7a.5.5 0 0 1-.5-.5zM7.5 6a.5.5 0 0 0 0 1h5a.5.5 0 0 0 0-1h-5zm0 3a.5.5 0 0 0 0 1h3a.5.5 0 0 0 0-1h-3zm0 3a.5.5 0 0 0 0 1h1a.5.5 0 0 0 0-1h-1z">
-                            </path>
-                        </svg>
-                        Sort by date
-                    </button>
-                </div>
+    </header> 
             </div>
-        </div>
 
-        <div class="container px-4 px-lg-5 mt-5">
-            <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-                <?php foreach ($json as $key1 => $value1): ?>
-                <a style="text-decoration:none;" onclick="sendElement('<?php print_r($json[$key1]['pic']) ?>','<?php print_r($json[$key1]['title'])?>','<?php print_r($json[$key1]['date'])?>','<?php print_r($json[$key1]['link'])?>')" >
-                    <div class="col mb-5">
-                        <div class="card movie_card">
-                            <img src="<?php print_r($json[$key1]["pic"]);?>"
-                                class="card-img-top" alt="...">
-                            <div class="card-body">
-                                <h5 class="card-title"><?php print_r($json[$key1]["title"]);?></h5>
-                                <span class="movie_info"><?php print_r($json[$key1]["date"]);?></span>
-                                <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
-                                    10</span>
-                            </div>
-                        </div>
-                    </div>
-                </a>
-                <?php endforeach; ?>
-<!--
-                <div class="col mb-5">
-                    <div class="card movie_card">
-                        <img src="https://static.posters.cz/image/750/affiches-et-posters/captain-marvel-epic-i71851.jpg"
-                            class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Captain Marvel</h5>
-                            <span class="movie_info">2019</span>
-                            <span class="movie_info float-right"><i class="fas fa-star"></i> 9 /
-                                10</span>
-                        </div>
-                    </div>
-                </div>
--->
 
-            </div>
-        </div>
-    </section>
+</div>
+
+
+<!-- ************************************************************* -->
+
     <!-- Footer-->
     <footer class="py-5 bg-dark">
         <div class="container">
