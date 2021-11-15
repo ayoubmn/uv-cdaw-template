@@ -17,7 +17,7 @@ Route::get('/', function () {
     #return "<h2>hello world</h2>";
     #echo <h2>hello world</h2>
     
-    return view('welcome');
+    return view('listeMedias');
 });
 
 
