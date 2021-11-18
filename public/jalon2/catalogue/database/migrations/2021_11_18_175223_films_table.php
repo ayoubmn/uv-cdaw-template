@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilmsTable extends Migration
+class FilmsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,6 +18,8 @@ class CreateFilmsTable extends Migration
             $table->string('name');
             $table->foreignId('category');
             $table->longText('url');
+            $table->timestamps();
+
         });
     }
 
