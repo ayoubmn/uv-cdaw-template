@@ -28,3 +28,9 @@ Route::get('/nom/{nom}/{prenom}', function ($nom,$prenom) {
 Route::get('/title/{title}', function ($title) {
     return "$title";
 })->where(['title' => '[a-z]+']);
+
+
+Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@getListeMedias');
+
+
+Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategories');

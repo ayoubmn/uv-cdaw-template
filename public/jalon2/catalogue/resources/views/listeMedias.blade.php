@@ -5,6 +5,10 @@
         $str = file_get_contents("data.json"); 
         $json = json_decode($str,true);
 
+/*        if (isset($_GET['date'])) {
+
+            $date=$_GET['date'];
+        }*/
     ?>
     <!-- Header-->
     <div class="bg-dark py-5">
