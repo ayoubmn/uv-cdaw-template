@@ -20,6 +20,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+/*
+
 Route::post('film', function (Request $request) {
     $film = Film::create($request->all());
     $cat = Category::find($request->category);
@@ -55,3 +57,5 @@ Route::put('film/{id}', function (Request $request, $id) {
     $film->save();
     return response()->json("Modifié avec succès");
 });
+
+*/

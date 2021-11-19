@@ -15,9 +15,17 @@ class Film extends Model
      */
     protected $fillable = [
         'name',
-        'category',
-        'url'
+        'category_id',
+        'url',
+        'avatar',
+        'duree',
+        'realisateur',
+        'description'
     ];
+
+    public function category(){
+        return $this->belongsTo(Category::class,"category_id","id");
+    }
 
     protected $table= 'films';
 }
