@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Category;
 
 /*
 |--------------------------------------------------------------------------
@@ -43,9 +44,16 @@ Route::get('/admin/listeMedias', 'App\Http\controllers\listeMediasController@get
 
 Route::post('/admin/addMedias', 'App\Http\controllers\listeMediasController@postAdminListeMedias');
 
+Route::get('/admin/addMedias/{film}', 'App\Http\controllers\listeMediasController@updateAdminListeMedias');
+
 
 Route::get('/admin/addMedias', function () {
-    return view('formAddMediasAdmin');
+    $cat=Category::all();
+    return view('formAddMediasAdmin', ['categories' => $cat]);
 });
+/*
+Route::get('/admin/addMedias/{film}', function ($film) {
 
-
+    return view('formAddMediasAdmin',["film"=>$film]);
+});
+*/

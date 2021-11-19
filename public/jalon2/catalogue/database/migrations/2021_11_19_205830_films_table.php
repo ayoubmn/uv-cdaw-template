@@ -16,11 +16,12 @@ class FilmsTable extends Migration
         Schema::create('films', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->foreignId('category_id').constrained('categories');
+            $table->foreignId('category_id')->constrained('categories');
             $table->string('url');
             $table->string('avatar');
             $table->string('duree');
             $table->string('realisateur');
+            $table->string('date');
             $table->Text('description');
             $table->timestamps();
 
