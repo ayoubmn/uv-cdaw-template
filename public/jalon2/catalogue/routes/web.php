@@ -34,3 +34,18 @@ Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@ge
 
 
 Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategories');
+
+
+
+
+//CRUD ADMIN
+Route::get('/admin/listeMedias', 'App\Http\controllers\listeMediasController@getAdminListeMedias');
+
+Route::post('/admin/addMedias', 'App\Http\controllers\listeMediasController@postAdminListeMedias');
+
+
+Route::get('/admin/addMedias', function () {
+    return view('formAddMediasAdmin');
+});
+
+
