@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
+use App\Http\Controllers\listeMediasController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,6 +15,7 @@ use App\Models\Category;
 |
 */
 
+//home page for normal user
 Route::get('/', function () {
     #return "<h2>hello world</h2>";
     #echo <h2>hello world</h2>
@@ -21,6 +23,43 @@ Route::get('/', function () {
     return view('listeMedias');
 });
 
+//tests
+Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@getListeMedias');
+Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategories');
+
+
+//CRUD ADMIN JALON2
+
+//display all medias for admin http://localhost:8080/jalon2/catalogue/public/admin/listeMedias
+Route::get('/admin/listeMedias',[listeMediasController::class, 'getAdminListeMedias']);
+
+//access to the form for adding new films
+Route::get('/admin/addMedias', function () {
+    $cat=Category::all();
+    return view('formAddMediasAdmin', ['categories' => $cat]);
+});
+
+
+//post the form data
+Route::post('/admin/addMedias',[listeMediasController::class, 'postAdminListeMedias'] );
+
+
+//access to the form to update a specific film
+Route::get('/admin/addMedias/{film}',[listeMediasController::class, 'updateAdminListeMedias'] );
+
+
+
+
+/*
+Route::get('/admin/addMedias/{film}', function ($film) {
+
+    return view('formAddMediasAdmin',["film"=>$film]);
+});
+*/
+
+
+
+/*
 
 Route::get('/nom/{nom}/{prenom}', function ($nom,$prenom) {
     return "Bonjour $nom $prenom";
@@ -29,31 +68,4 @@ Route::get('/nom/{nom}/{prenom}', function ($nom,$prenom) {
 Route::get('/title/{title}', function ($title) {
     return "$title";
 })->where(['title' => '[a-z]+']);
-
-
-Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@getListeMedias');
-
-
-Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategories');
-
-
-
-
-//CRUD ADMIN
-Route::get('/admin/listeMedias', 'App\Http\controllers\listeMediasController@getAdminListeMedias');
-
-Route::post('/admin/addMedias', 'App\Http\controllers\listeMediasController@postAdminListeMedias');
-
-Route::get('/admin/addMedias/{film}', 'App\Http\controllers\listeMediasController@updateAdminListeMedias');
-
-
-Route::get('/admin/addMedias', function () {
-    $cat=Category::all();
-    return view('formAddMediasAdmin', ['categories' => $cat]);
-});
-/*
-Route::get('/admin/addMedias/{film}', function ($film) {
-
-    return view('formAddMediasAdmin',["film"=>$film]);
-});
 */
