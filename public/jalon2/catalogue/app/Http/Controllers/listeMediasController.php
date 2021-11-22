@@ -43,7 +43,8 @@ public function updateAdminListeMedias(Request $request) {
 }
 
 public function deleteAdminListeMedias(Request $request) {
-   
+    $media = Film::where("id",$request->film)->first();
+    $media->delete();
     return redirect('/admin/listeMedias');
     //return view('listeMediasAdmin', ['media' => $media]);
 }

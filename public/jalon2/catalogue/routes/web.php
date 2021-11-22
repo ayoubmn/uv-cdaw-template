@@ -47,6 +47,8 @@ Route::post('/admin/addMedias',[listeMediasController::class, 'postAdminListeMed
 //access to the form to update a specific film
 Route::get('/admin/addMedias/{film}',[listeMediasController::class, 'updateAdminListeMedias'] );
 
+//delete media
+Route::get('/admin/deleteMedias/{film}',[listeMediasController::class, 'deleteAdminListeMedias'] );
 
 
 

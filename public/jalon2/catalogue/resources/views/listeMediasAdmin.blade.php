@@ -24,7 +24,7 @@
                                     10</span>
                                 <div>
 
-                                    <a href="#" class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
+                                    <a href="/jalon2/catalogue/public/admin/deleteMedias/{{$media->id}}" class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
                                     <a href="/jalon2/catalogue/public/admin/addMedias/{{$media->id}}" class="btn btn-info " role="button" aria-pressed="true">Update</a>
 
                                 </div>
