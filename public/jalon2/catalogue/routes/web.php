@@ -43,6 +43,10 @@ Route::get('/admin/listeMedias', 'App\Http\controllers\listeMediasController@get
 
 Route::post('/admin/addMedias', 'App\Http\controllers\listeMediasController@postAdminListeMedias');
 
+Route::get('/admin/addMedias/{film}',[listeMediasController::class, 'updateAdminListeMedias'] );
+
+Route::get('/admin/deleteMedias/{film}',[listeMediasController::class, 'deleteAdminListeMedias'] );
+
 
 Route::get('/admin/addMedias', function () {
     return view('formAddMediasAdmin');

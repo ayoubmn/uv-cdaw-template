@@ -32,6 +32,18 @@ public function postAdminListeMedias(Request $request) {
     //return view('listeMediasAdmin', ['media' => $media]);
 }
 
+public function updateAdminListeMedias(Request $request) {
+    $media = Film::where("id",$request->film)->first();
+    $cat=Category::all();
+    return view('formAddMediasAdmin', ['media' => $media,'categories' => $cat]);
+}
+
+public function deleteAdminListeMedias(Request $request) {
+    $media = Film::where("id",$request->film)->first();
+    $media->delete();
+    return redirect('/admin/listeMedias');
+}
+
 
 public function getCategories() {
     $cat=Category::all();
