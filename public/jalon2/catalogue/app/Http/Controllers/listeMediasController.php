@@ -17,17 +17,21 @@ public function postAdminListeMedias(Request $request) {
     $new = new Film();
     $new->name = $request->name;
     #$cat = Category::select("id")->where("name",$request->category_id);
-    $cat = Category::where("name",$request->category_id)->first();
+    #$cat = Category::where("name",$request->category_id)->first();
 
-    $new->category_id = $cat->id;
+    $new->category_id = $request->category_id;
     $new->url = $request->url;
     $new->avatar = $request->avatar;
+    $new->date = $request->date;
     $new->duree = $request->duree;
     $new->realisateur = $request->realisateur;
     $new->description = $request->description;
-    $new->save();
+    if (!empty($request->id)) {
+        Film::where('id', $request->id)->update($request->except('_token'));
+    }else {
+        Film::create($request->except('_token'));
+    }
     //$media= Film::all();
-
     return redirect('/admin/listeMedias');
     //return view('listeMediasAdmin', ['media' => $media]);
 }

@@ -17,6 +17,7 @@ class Film extends Model
         'name',
         'category_id',
         'url',
+        'date',
         'avatar',
         'duree',
         'realisateur',
