@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
+use App\Models\Film;
+
 use App\Http\Controllers\listeMediasController;
 
 /*
@@ -17,10 +19,10 @@ use App\Http\Controllers\listeMediasController;
 
 //home page for normal user
 Route::get('/', function () {
-    #return "<h2>hello world</h2>";
-    #echo <h2>hello world</h2>
-    
-    return view('listeMedias');
+    $cat=Category::all();
+    $film=Film::all();
+
+    return view('indexUser', ['categories' => $cat,'films' => $film]);
 });
 /*
 //tests
@@ -72,5 +74,8 @@ Route::get('/title/{title}', function ($title) {
 })->where(['title' => '[a-z]+']);
 */
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+    $cat=Category::all();
+    $film=Film::all();
+
+    return view('indexUser', ['categories' => $cat,'films' => $film]);
+})->name('indexUser');
