@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class UpdateUsers extends Migration
+class UpdateUserTable extends Migration
 {
     /**
      * Run the migrations.
@@ -18,7 +18,11 @@ class UpdateUsers extends Migration
             $table->id();
             $table->string('name');
             $table->string('email')->unique();
-            $table->foreignId('role')->constrained('roles')->default(1);
+            $table->bigInteger('role')->unsigned()->nullable();
+            $table->foreign('role')->references('role_id')->on('roles');
+
+
+            //$table->foreignId('role')->constrained('roles')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

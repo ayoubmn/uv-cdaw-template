@@ -21,6 +21,7 @@ use App\Http\Controllers\listeMediasController;
 Route::get('/', function () {
     $cat=Category::all();
     $film=Film::all();
+    \Debugbar::error('hi');
 
     return view('indexUser', ['categories' => $cat,'films' => $film]);
 });
@@ -53,6 +54,15 @@ Route::get('/admin/addMedias/{film}',[listeMediasController::class, 'updateAdmin
 Route::get('/admin/deleteMedias/{film}',[listeMediasController::class, 'deleteAdminListeMedias'] );
 
 
+Route::name('admin')
+  ->prefix('admin')
+  ->middleware(['auth', 'can:accessdmin'])
+  ->group(function () {
+    Route::get('/admin/dashboard', 'Adminpanel\Dashboard@index');        
+    
+    Route::resource('posts', 'PostController');
+    Route::resource('users', 'UserController');
+});
 
 
 
