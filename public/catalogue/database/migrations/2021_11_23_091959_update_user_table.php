@@ -16,7 +16,11 @@ class UpdateUserTable extends Migration
         Schema::dropIfExists('users');
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->string('nom');
+            $table->string('prenom');
+            $table->date('date_de_naissance');
+            $table->boolean('statut');
+
             $table->string('email')->unique();
             $table->bigInteger('role')->unsigned()->nullable();
             $table->foreign('role')->references('role_id')->on('roles');

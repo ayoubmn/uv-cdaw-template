@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Film extends Model
+class Media extends Model
 {
     use HasFactory;
    /**
@@ -15,11 +15,14 @@ class Film extends Model
      */
     protected $fillable = [
         'name',
+        'type',
         'category_id',
         'url',
         'date',
         'avatar',
         'duree',
+        'nbr_saison',
+        'rating',
         'realisateur',
         'description'
     ];
@@ -28,5 +31,5 @@ class Film extends Model
         return $this->belongsTo(Category::class,"category_id","id");
     }
 
-    protected $table= 'films';
+    protected $table= 'media';
 }

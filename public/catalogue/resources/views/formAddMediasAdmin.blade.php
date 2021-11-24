@@ -4,7 +4,7 @@
 
     @if(empty($media))
         <div class="container" style="margin-top: 1rem;margin-bottom: 1rem">
-            <form id="addFilm" method="POST" action="/catalogue/public/admin/addMedias">
+            <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -48,7 +48,7 @@
         </div>
     @else
         <div class="container" style="margin-top: 1rem;margin-bottom: 1rem">
-            <form id="addFilm" method="POST" action="/catalogue/public/admin/addMedias">
+            <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
                 @csrf
                 <div class="form-group" style="display: none;">
                     <label for="id">ID</label>

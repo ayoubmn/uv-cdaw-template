@@ -114,15 +114,15 @@
 	<div class="container">
 		<div class="row">
 	    	<div class="slider-single-item">
-                @foreach($films as $film)
+                @foreach($Medias as $Media)
 	    		<div class="movie-item">
 	    			<div class="title-in">
 	    				<div class="cate">
 	    					<span class="orange"><a href="#">advanture</a></span>
 	    				</div>
-	    				<h1><a href="#">{{$film->name}}<span>{{$film->date}}</span></a></h1>
+	    				<h1><a href="#">{{$Media->name}}<span>{{$Media->date}}</span></a></h1>
 						<div class="social-btn">
-							<a href="{{$film->url}}" class="parent-btn"><i class="ion-play"></i> Watch Trailer</a>
+							<a href="{{$Media->url}}" class="parent-btn"><i class="ion-play"></i> Watch Trailer</a>
                             @auth
 							<a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
                             @endauth
@@ -139,8 +139,8 @@
 	    				<div class="mv-details">
 	    					<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
 	    					<ul class="mv-infor">
-	    						<li>  Run Time: {{$film->duree}} </li>
-	    						<li>  {{$film->realisateur}} </li>
+	    						<li>  Run Time: {{$Media->duree}} </li>
+	    						<li>  {{$Media->realisateur}} </li>
 	    					</ul>
 	    				</div>
 	    				
@@ -155,18 +155,18 @@
 <div style="padding: 70px 0;background-color: #020d18;">
     <div class="container px-4 px-lg-5 mt-5" >
         <div  class="movie-items" style="display:flex;flex-direction: row;flex-wrap: wrap;  gap: 3rem;">
-            @foreach($films as $film)
+            @foreach($Medias as $Media)
             <div class="item col card card-body">
                 <div class="slide-it">
                     <div class="movie-item">
                         <div class="mv-img">
-                            <img src="{{$film->avatar}}" alt="" width="285" height="384">
+                            <img src="{{$Media->avatar}}" alt="" width="285" height="384">
                         </div>
                         <div class="hvr-inner">
-                            <a  href="{{$film->url}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                            <a  href="{{$Media->url}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
                         </div>
                         <div class="title-in">
-                            <h6><a href="#">{{$film->name}}</a></h6>
+                            <h6><a href="#">{{$Media->name}}</a></h6>
                             <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
                         </div>
                     </div>
@@ -180,7 +180,7 @@
 <div style="padding: 70px 0;background-color: #020d18;">
     <div class="container px-4 px-lg-5 mt-5" >
         <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            @foreach($films as $film)
+            @foreach($Medias as $Media)
                 <div class="col card card-body">
                     <div class="slide-it">
                         <div class="movie-item">
@@ -214,7 +214,7 @@
 				</div>
             <div class="container-fluid">
                 <div class="row row-cols-4">
-                    @foreach($films as $film)
+                    @foreach($Medias as $Media)
                     <a style="text-decoration:none;">
                         <div class="col card card-body">
                             <div class="slide-it">

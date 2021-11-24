@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
-use App\Models\Film;
+use App\Models\Media;
 
 use App\Http\Controllers\listeMediasController;
 
@@ -20,10 +20,10 @@ use App\Http\Controllers\listeMediasController;
 //home page for normal user
 Route::get('/', function () {
     $cat=Category::all();
-    $film=Film::all();
+    $Media=Media::all();
     \Debugbar::error('hi');
 
-    return view('indexUser', ['categories' => $cat,'films' => $film]);
+    return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
 });
 /*
 //tests
@@ -36,7 +36,7 @@ Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategor
 //display all medias for admin http://localhost:8080/catalogue/public/admin/listeMedias
 Route::get('/admin/listeMedias',[listeMediasController::class, 'getAdminListeMedias']);
 
-//access to the form for adding new films
+//access to the form for adding new Medias
 Route::get('/admin/addMedias', function () {
     $cat=Category::all();
     return view('formAddMediasAdmin', ['categories' => $cat]);
@@ -47,11 +47,11 @@ Route::get('/admin/addMedias', function () {
 Route::post('/admin/addMedias',[listeMediasController::class, 'postAdminListeMedias'] );
 
 
-//access to the form to update a specific film
-Route::get('/admin/addMedias/{film}',[listeMediasController::class, 'updateAdminListeMedias'] );
+//access to the form to update a specific Media
+Route::get('/admin/addMedias/{Media}',[listeMediasController::class, 'updateAdminListeMedias'] );
 
 //delete media
-Route::get('/admin/deleteMedias/{film}',[listeMediasController::class, 'deleteAdminListeMedias'] );
+Route::get('/admin/deleteMedias/{Media}',[listeMediasController::class, 'deleteAdminListeMedias'] );
 
 
 Route::name('admin')
@@ -67,7 +67,7 @@ Route::name('admin')
 
 
 /*
-    return view('formAddMediasAdmin',["film"=>$film]);
+    return view('formAddMediasAdmin',["Media"=>$Media]);
 });
 */
 
@@ -85,7 +85,7 @@ Route::get('/title/{title}', function ($title) {
 */
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $cat=Category::all();
-    $film=Film::all();
+    $Media=Media::all();
 
-    return view('indexUser', ['categories' => $cat,'films' => $film]);
+    return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
 })->name('indexUser');
