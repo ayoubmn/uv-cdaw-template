@@ -21,6 +21,8 @@ class CreateFilmsTable extends Migration
             $table->string('avatar');
             $table->string('duree');
             $table->string('realisateur');
+            $table->string('date');
+
             $table->Text('description');
             $table->timestamps();
 
