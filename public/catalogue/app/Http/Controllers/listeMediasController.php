@@ -5,36 +5,31 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Media_Categorie;
 
 class listeMediasController extends Controller
 {
 public function getAdminListeMedias() {
-    $media= Media::with('category')->get();
+    //$media= Media::with('category')->get();
+    $media= Media::all();
+    
     return view('listeMediasAdmin', ['media' => $media]);
 }
 
-public function postAdminListeMedias(Request $request) {
-    $new = new Media();
-    $new->name = $request->name;
-    #$cat = Category::select("id")->where("name",$request->category_id);
-    #$cat = Category::where("name",$request->category_id)->first();
 
-    $new->category_id = $request->category_id;
-    $new->url = $request->url;
-    $new->avatar = $request->avatar;
-    $new->date = $request->date;
-    $new->duree = $request->duree;
-    $new->realisateur = $request->realisateur;
-    $new->description = $request->description;
+public function postAdminListeMedias(Request $request) {
     if (!empty($request->id)) {
-        Media::where('id', $request->id)->update($request->except('_token'));
+        $media=Media::where('id', $request->id)->update($request->except('_token','category'));
     }else {
-        Media::create($request->except('_token'));
+        $media=Media::create($request->except('_token'));
     }
-    //$media= Media::all();
+
+    foreach ($request->category as $cat) {
+        Media_Categorie::updateOrCreate(['id_media' => $request->id?$request->id:$media->id,'nom_cat' => $cat]);    
+    };
     return redirect('/admin/listeMedias');
-    //return view('listeMediasAdmin', ['media' => $media]);
 }
+
 
 public function updateAdminListeMedias(Request $request) {
     $media = Media::where("id",$request->Media)->first();
@@ -44,6 +39,9 @@ public function updateAdminListeMedias(Request $request) {
 
 public function deleteAdminListeMedias(Request $request) {
     $media = Media::where("id",$request->Media)->first();
+
+    $media_cat = Media_Categorie::where("id_media",$request->Media);
+    $media_cat->delete();   
     $media->delete();
     return redirect('/admin/listeMedias');
 }

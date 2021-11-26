@@ -31,33 +31,37 @@ Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@ge
 Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategories');
 */
 
-//CRUD ADMIN JALON2
 
-//display all medias for admin http://localhost:8080/catalogue/public/admin/listeMedias
-Route::get('/admin/listeMedias',[listeMediasController::class, 'getAdminListeMedias']);
-
-//access to the form for adding new Medias
-Route::get('/admin/addMedias', function () {
-    $cat=Category::all();
-    return view('formAddMediasAdmin', ['categories' => $cat]);
-});
-
-
-//post the form data
-Route::post('/admin/addMedias',[listeMediasController::class, 'postAdminListeMedias'] );
-
-
-//access to the form to update a specific Media
-Route::get('/admin/addMedias/{Media}',[listeMediasController::class, 'updateAdminListeMedias'] );
-
-//delete media
-Route::get('/admin/deleteMedias/{Media}',[listeMediasController::class, 'deleteAdminListeMedias'] );
 
 
 Route::name('admin')
   ->prefix('admin')
-  ->middleware(['auth', 'can:accessdmin'])
+  ->middleware(['auth', 'IsAdmin'])
   ->group(function () {
+
+
+    //CRUD ADMIN JALON2
+
+    //display all medias for admin http://localhost:8080/catalogue/public/admin/listeMedias
+    Route::get('/admin/listeMedias',[listeMediasController::class, 'getAdminListeMedias']);
+
+    //access to the form for adding new Medias
+    Route::get('/admin/addMedias', function () {
+        $cat=Category::all();
+        return view('formAddMediasAdmin', ['categories' => $cat]);
+    });
+
+
+    //post the form data
+    Route::post('/admin/addMedias',[listeMediasController::class, 'postAdminListeMedias'] );
+
+
+    //access to the form to update a specific Media
+    Route::get('/admin/addMedias/{Media}',[listeMediasController::class, 'updateAdminListeMedias'] );
+
+    //delete media
+    Route::get('/admin/deleteMedias/{Media}',[listeMediasController::class, 'deleteAdminListeMedias'] );
+
     Route::get('/admin/dashboard', 'Adminpanel\Dashboard@index');        
     
     Route::resource('posts', 'PostController');

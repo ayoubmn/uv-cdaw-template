@@ -18,7 +18,7 @@ class CreateMediasTable extends Migration
             $table->string('name');
             $table->string('type');
 
-            $table->foreignId('category_id')->constrained('categories');
+//            $table->foreignId('category_id')->constrained('categories');
             $table->string('url');
             $table->string('avatar');
             $table->string('duree')->nullable();

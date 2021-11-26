@@ -3,7 +3,7 @@
     @section('contentadmin')
 
     @if(empty($media))
-        <div class="container" style="margin-top: 1rem;margin-bottom: 1rem">
+        <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;">
             <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
                 @csrf
                 <div class="form-group">
@@ -11,16 +11,24 @@
                     <input type="text" class="form-control" id="name" name="name"  placeholder="Name">
                 </div>
                 <div class="form-group">
+                    <label for="type">Type</label></br>
+                    <label class="radio-inline"><input type="radio" name="type" value="Film" checked>Film&#32;</label>
+                    <label class="radio-inline"><input type="radio" name="type" value="Serie">Serie&#32;</label>
+                    <label class="radio-inline"><input type="radio" name="type" value="Anime">Anime</label>
+
+                </div>
+                <div class="form-group">
                     <label for="url">Trailler</label>
                     <input type="text" class="form-control" id="url" name="url" placeholder="Trailler">
                 </div>
                 <div class="form-group">
-                    <label for="category_id">Category</label>
-                    <select class="form-control" id="category_id" name="category_id">
-                        @foreach($categories as $cat)
-                            <option value={{$cat->id}}>{{$cat->name}}</option>
-                        @endforeach
-                    </select>
+                    <label for="category">Category</label></br>
+                    @foreach($categories as $cat)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="category[]" type="checkbox" id={{$cat->name}} value={{$cat->name}}>
+                        <label class="form-check-label" for={{$cat->name}}>{{$cat->name}}</label>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     <label for="avater">Avatar</label>
@@ -37,6 +45,14 @@
                 <div class="form-group">
                     <label for="duree">Duration</label>
                     <input type="text" class="form-control" id="duree" name="duree" placeholder="Duration">
+                </div>
+                <div class="form-group">
+                    <label for="duree">saison number</label>
+                    <input type="text" class="form-control" id="nbr_saison" name="nbr_saison" placeholder="Nombre de serie si c'est une serie">
+                </div>
+                <div class="form-group">
+                    <label for="duree">Rating</label>
+                    <input type="text" class="form-control" id="rating" name="rating" placeholder="rating">
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>
@@ -63,12 +79,13 @@
                     <input type="text" class="form-control" id="url" name="url" value={{$media->url}}>
                 </div>
                 <div class="form-group">
-                    <label for="category_id">Category</label>
-                    <select class="form-control" id="category_id" name="category_id">
-                        @foreach($categories as $cat)
-                            <option value={{$cat->id}}>{{$cat->name}}</option>
-                        @endforeach
-                    </select>
+                    <label for="category">Category</label></br>
+                    @foreach($categories as $cat)
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" name="category[]" type="checkbox" id={{$cat->name}} value={{$cat->name}}>
+                        <label class="form-check-label" for={{$cat->name}}>{{$cat->name}}</label>
+                    </div>
+                    @endforeach
                 </div>
                 <div class="form-group">
                     <label for="avater">Avatar</label>
@@ -85,6 +102,14 @@
                 <div class="form-group">
                     <label for="duree">Duration</label>
                     <input type="text" class="form-control" id="duree" name="duree" value={{$media->duree}}>
+                </div>
+                <div class="form-group">
+                    <label for="duree">saison number</label>
+                    <input type="text" class="form-control" id="nbr_saison" name="nbr_saison" value={{$media->nbr_saison}}>
+                </div>
+                <div class="form-group">
+                    <label for="duree">Rating</label>
+                    <input type="text" class="form-control" id="rating" name="rating" value={{$media->rating}}>
                 </div>
                 <div class="form-group">
                     <label for="description">Description</label>

@@ -13,9 +13,13 @@ class Category extends Model
      *
      * @var string[]
      */
+
     protected $fillable = [
         'name'
     ];
+
+    protected $primaryKey = 'name';
+    public $incrementing = false;
 
     protected $table= 'categories';
 }
