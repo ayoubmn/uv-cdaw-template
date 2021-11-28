@@ -5,6 +5,7 @@ use App\Models\Category;
 use App\Models\Media;
 
 use App\Http\Controllers\listeMediasController;
+use App\Http\Controllers\userController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,7 +25,7 @@ Route::get('/', function () {
     \Debugbar::error('hi');
 
     return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
-});
+})->name('home');
 /*
 //tests
 Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@getListeMedias');
@@ -32,6 +33,20 @@ Route::get('/categories', 'App\Http\controllers\listeMediasController@getCategor
 */
 
 
+Route::name('user')
+  ->prefix('user')
+  ->middleware(['auth'])
+  ->group(function () {
+    Route::get('/profile', function () {
+        $cat=Category::all();
+        return view('profile', ['categories' => $cat]);
+    });
+
+    Route::post('/update',[userController::class, 'updateUser'] );
+    Route::post('/updateAvatar',[userController::class, 'updateUserAvatar'] );
+
+
+  });
 
 
 Route::name('admin')
@@ -39,33 +54,27 @@ Route::name('admin')
   ->middleware(['auth', 'IsAdmin'])
   ->group(function () {
 
-
     //CRUD ADMIN JALON2
-
     //display all medias for admin http://localhost:8080/catalogue/public/admin/listeMedias
-    Route::get('/admin/listeMedias',[listeMediasController::class, 'getAdminListeMedias']);
+    Route::get('/listeMedias',[listeMediasController::class, 'getAdminListeMedias']);
 
     //access to the form for adding new Medias
-    Route::get('/admin/addMedias', function () {
+    Route::get('/addMedias', function () {
         $cat=Category::all();
         return view('formAddMediasAdmin', ['categories' => $cat]);
     });
 
 
     //post the form data
-    Route::post('/admin/addMedias',[listeMediasController::class, 'postAdminListeMedias'] );
+    Route::post('/addMedias',[listeMediasController::class, 'postAdminListeMedias'] );
 
 
     //access to the form to update a specific Media
-    Route::get('/admin/addMedias/{Media}',[listeMediasController::class, 'updateAdminListeMedias'] );
+    Route::get('/addMedias/{Media}',[listeMediasController::class, 'updateAdminListeMedias'] );
 
     //delete media
-    Route::get('/admin/deleteMedias/{Media}',[listeMediasController::class, 'deleteAdminListeMedias'] );
+    Route::get('/deleteMedias/{Media}',[listeMediasController::class, 'deleteAdminListeMedias'] );
 
-    Route::get('/admin/dashboard', 'Adminpanel\Dashboard@index');        
-    
-    Route::resource('posts', 'PostController');
-    Route::resource('users', 'UserController');
 });
 
 
@@ -87,9 +96,16 @@ Route::get('/title/{title}', function ($title) {
     return "$title";
 })->where(['title' => '[a-z]+']);
 */
+
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     $cat=Category::all();
     $Media=Media::all();
 
     return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
-})->name('indexUser');
+})->name('dashboard');
+
+/*
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('template');
+})->name('dashboard');
+*/

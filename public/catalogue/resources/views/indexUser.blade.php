@@ -31,9 +31,29 @@
 
 </head>
 <body>
+<!--preloading-->
+<div id="preloader">
+    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
+<!--login form popup-->
+<div class="login-wrapper" id="login-content">
+    <div class="login-content">
+		@include('auth/login') 
+    </div>
+</div>
+<!--end of login form popup-->
+<!--signup form popup-->
+<div class="login-wrapper"  id="signup-content">
+    <div class="login-content">
+		@include('auth/register') 
 
-<!--end of preloading-->
-
+    </div>
+</div>
+<!--end of signup form popup-->
 
 <!-- BEGIN | Header -->
 <header class="ht-header">
@@ -83,9 +103,9 @@
                             <!-- Authentication -->
                         <h6 style="color:white;margin-right:0.5em;">
                             Welcome 
-                            <x-jet-dropdown-link href="{{ route('profile.show') }}">
-                                {{ Auth::user()->name }}
-                            </x-jet-dropdown-link>
+                            <a href="user/profile">
+                                {{ Auth::user()->nom }}
+							</a>
                         </h6>
                         <li class="btn ">
                             <form method="POST" action="{{ route('logout') }}">
@@ -98,8 +118,10 @@
                             </form>
                         </li>
                         @else
-						<li class=""><a href="login/" id="login">LOG In</a></li>
-						<li class="btn "><a href="register/" id='register'>sign up</a></li>
+						<!--<li class=""><a href="login/" id="login">LOG In</a></li>
+						<li class="btn "><a href="register/" id='register'>sign up</a></li>-->
+						<li class="loginLink"><a href="#">LOG In</a></li>
+						<li class="btn signupLink"><a href="#">sign up</a></li>
 
                         @endauth
 					</ul>

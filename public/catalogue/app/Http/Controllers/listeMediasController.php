@@ -12,12 +12,15 @@ class listeMediasController extends Controller
 public function getAdminListeMedias() {
     //$media= Media::with('category')->get();
     $media= Media::all();
-    
-    return view('listeMediasAdmin', ['media' => $media]);
+    $cat=Category::all();
+
+    return view('listeMediasAdmin', ['media' => $media,'categories' => $cat]);
 }
 
 
 public function postAdminListeMedias(Request $request) {
+    $cat=Category::all();
+
     if (!empty($request->id)) {
         $media=Media::where('id', $request->id)->update($request->except('_token','category'));
     }else {

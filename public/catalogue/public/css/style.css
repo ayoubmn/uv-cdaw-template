@@ -6960,12 +6960,11 @@ p.ceb-single {
   font-weight: bold;
   text-transform: uppercase;
   width: 100%;
-  margin-bottom: 25px;
 }
 @media (max-width: 767px) {
   .overlay .login-content label {
-    margin-bottom: 15px;
-  }
+/*    margin-bottom: 15px;
+ */ }
 }
 .overlay .login-content label input {
   font-family: 'Dosis', sans-serif;

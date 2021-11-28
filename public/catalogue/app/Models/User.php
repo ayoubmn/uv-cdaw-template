@@ -31,7 +31,9 @@ class User extends Authenticatable
         'date_de_naissance',
         'statut',
         'password',
-        'role' => 1
+        'role' => 1,
+        'profile_photo_path',
+
 
     ];
 
@@ -62,7 +64,6 @@ class User extends Authenticatable
      * @var array
      */
     protected $appends = [
-        'profile_photo_url',
     ];
         
     public function role(){
