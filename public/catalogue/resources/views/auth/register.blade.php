@@ -1,8 +1,3 @@
-<x-guest-layout>
-    <x-jet-authentication-card>
-        <x-slot name="logo">
-            <x-jet-authentication-card-logo />
-        </x-slot>
 
         <x-jet-validation-errors class="mb-4" />
 
@@ -21,7 +16,11 @@
                 <x-jet-label for="email" value="{{ __('Email') }}" />
                 <x-jet-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required />
             </div>
+            <div class="mt-4">
+                <x-jet-label for="date_de_naissance" value="Date de naissance" />
+                <x-jet-input id="date_de_naissance" type="date" class="mt-1 block w-full" name="date_de_naissance" :value="old('date_de_naissance')" wire="date_de_naissance"       />
 
+            </div>
             <div class="mt-4">
                 <x-jet-label for="password" value="{{ __('Password') }}" />
                 <x-jet-input id="password" class="block mt-1 w-full" type="password" name="password" required autocomplete="new-password" />
@@ -59,5 +58,3 @@
                 </x-jet-button>
             </div>
         </form>
-    </x-jet-authentication-card>
-</x-guest-layout>

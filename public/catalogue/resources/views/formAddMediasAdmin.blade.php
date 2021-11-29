@@ -1,7 +1,23 @@
 
-    @extends('templateadmin')
-    @section('contentadmin')
+@extends('templateUser')
+@section('formContentMediasAdmin')
 
+<div class="hero user-hero">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				<div class="hero-ct">
+					<h1>Profile de {{Auth::user()->prenom }} {{Auth::user()->nom }}</h1>
+					<ul class="breadcumb">
+						<li class="active"><a href="#">Admin</a></li>
+						<li> <span class="ion-ios-arrow-right"></span>Ajouter</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="">
     @if(empty($media))
         <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;">
             <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
@@ -120,10 +136,7 @@
             </form>
         </div>
     @endif
-
-
-    <!-- Section-->
-
-    @stop
+</div>
+@stop
 
 

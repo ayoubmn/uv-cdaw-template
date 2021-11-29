@@ -19,7 +19,7 @@ class UpdateUserTable extends Migration
             $table->string('nom');
             $table->string('prenom');
             $table->date('date_de_naissance');
-            $table->boolean('statut');
+            $table->boolean('statut')->default('1');
 
             $table->string('email')->unique();
             $table->bigInteger('role')->unsigned()->nullable();
