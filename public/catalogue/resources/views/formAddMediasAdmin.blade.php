@@ -17,9 +17,9 @@
 		</div>
 	</div>
 </div>
-<div class="">
+<div class="page-single">
     @if(empty($media))
-        <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;">
+        <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;background-color:white;padding: 1rem;border-radius: 1rem;">
             <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
                 @csrf
                 <div class="form-group">
@@ -79,7 +79,7 @@
             </form>
         </div>
     @else
-        <div class="container" style="margin-top: 1rem;margin-bottom: 1rem">
+        <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;background-color:white;padding: 1rem;border-radius: 1rem;">
             <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
                 @csrf
                 <div class="form-group" style="display: none;">

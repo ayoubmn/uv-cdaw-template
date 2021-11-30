@@ -20,3 +20,6 @@ login and register are popups that could be displayed from homepage
 
 
 * tests
+
+Units/RegisterTest
+Units/ProfileTest

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Media_Categorie;
 
 use App\Http\Controllers\listeMediasController;
 use App\Http\Controllers\userController;
@@ -20,9 +21,13 @@ use App\Http\Controllers\userController;
 
 //home page for normal user
 Route::get('/', function () {
-    $cat=Category::all();
     $Media=Media::all();
-    \Debugbar::error('hi');
+    //\Debugbar::error('hi');
+    //$cat=Media_Categorie::all();
+    $cat = DB::table('media_categories')
+    ->select('*')
+    ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
+    ->get();
 
     return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
 })->name('home');

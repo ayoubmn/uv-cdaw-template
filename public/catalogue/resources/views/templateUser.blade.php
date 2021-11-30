@@ -172,10 +172,10 @@
 </footer>
 <!-- end of footer section-->
 
-<script src="js/jquery.js"></script>
-<script src="js/plugins.js"></script>
-<script src="js/plugins2.js"></script>
-<script src="js/custom.js"></script>
+<script src="/catalogue/public/js/jquery.js"></script>
+<script src="/catalogue/public/js/plugins.js"></script>
+<script src="/catalogue/public/js/plugins2.js"></script>
+<script src="/catalogue/public/js/custom.js"></script>
 </body>
 
 <!-- homev307:29-->

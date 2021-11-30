@@ -140,9 +140,13 @@
 	    		<div class="movie-item">
 	    			<div class="title-in">
 	    				<div class="cate">
-	    					<span class="orange"><a href="#">advanture</a></span>
+                		@foreach($categories as $cat)
+							@if( $cat->id_media == $Media->id )
+								<span style="background-color:{{$cat->color}};"><a href="#">{{$cat->nom_cat}}</a></span>
+							@endif
+						@endforeach
 	    				</div>
-	    				<h1><a href="#">{{$Media->name}}<span>{{$Media->date}}</span></a></h1>
+	    				<h1><a href="#">{{$Media->name}}&#32;<span>{{$Media->date}}</span></a></h1>
 						<div class="social-btn">
 							<a href="{{$Media->url}}" class="parent-btn"><i class="ion-play"></i> Watch Trailer</a>
                             @auth
@@ -174,6 +178,7 @@
 	</div>
 </div>
 
+<!--
 <div style="padding: 70px 0;background-color: #020d18;">
     <div class="container px-4 px-lg-5 mt-5" >
         <div  class="movie-items" style="display:flex;flex-direction: row;flex-wrap: wrap;  gap: 3rem;">
@@ -198,6 +203,179 @@
         </div>
     </div>
 </div>
+-->
+
+
+
+
+<div class="page-single">
+	<div class="container">
+		<div class="row ipad-width">
+			<div class="col-md-8 col-sm-12 col-xs-12">
+				<div class="topbar-filter">
+					<p>Found <span>{{count($Medias)}}</span> in total</p>
+					<label>Sort by:</label>
+					<select>
+						<option value="popularity">Popularity Descending</option>
+						<option value="popularity">Popularity Ascending</option>
+						<option value="rating">Rating Descending</option>
+						<option value="rating">Rating Ascending</option>
+						<option value="date">Release date Descending</option>
+						<option value="date">Release date Ascending</option>
+					</select>
+				</div>
+				<div class="flex-wrap-movielist ">
+					@foreach($Medias as $media)
+						<div class="movie-item-style-2 movie-item-style-1">
+                        <div class="mv-img">
+                            <img src="{{$media->avatar}}" alt="">
+                        </div>
+                        <div class="hvr-inner">
+                            <a  href="{{$media->url}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                        </div>
+							<div class="mv-item-infor">
+								<h6><a href="#">{{$media->name}}</a></h6>
+								<p class="rate"><i class="ion-android-star"></i><span>{{$media->rating}}</span> /10</p>
+							</div>
+						</div>	
+					@endforeach	
+				</div>			
+				<div class="topbar-filter">
+					<label>Movies per page:</label>
+					<select>
+						<option value="range">20 Movies</option>
+						<option value="saab">10 Movies</option>
+					</select>
+					
+					<div class="pagination2">
+						<span>Page 1 of 2:</span>
+						<a class="active" href="#">1</a>
+						<a href="#">2</a>
+						<a href="#">3</a>
+						<a href="#">...</a>
+						<a href="#">78</a>
+						<a href="#">79</a>
+						<a href="#"><i class="ion-arrow-right-b"></i></a>
+					</div>
+				</div>
+			</div>
+			<div class="col-md-4 col-sm-12 col-xs-12">
+				<div class="sidebar">
+					<div class="searh-form">
+						<h4 class="sb-title">Search for movie</h4>
+						<form class="form-style-1" action="#">
+							<div class="row">
+								<div class="col-md-12 form-it">
+									<label>Movie name</label>
+									<input type="text" placeholder="Enter keywords">
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Genres & Subgenres</label>
+									<div class="group-ip">
+										<select
+											name="skills" multiple="" class="ui fluid dropdown">
+											<option value="">Enter to filter genres</option>
+											<option value="Action1">Action 1</option>
+					                        <option value="Action2">Action 2</option>
+					                        <option value="Action3">Action 3</option>
+					                        <option value="Action4">Action 4</option>
+					                        <option value="Action5">Action 5</option>
+										</select>
+									</div>	
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Rating Range</label>
+									<select>
+									  <option value="range">-- Select the rating range below --</option>
+									  <option value="saab">-- Select the rating range below --</option>
+									</select>
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Release Year</label>
+									<div class="row">
+										<div class="col-md-6">
+											<select>
+											  <option value="range">From</option>
+											  <option value="number">10</option>
+											</select>
+										</div>
+										<div class="col-md-6">
+											<select>
+											  <option value="range">To</option>
+											  <option value="number">20</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 ">
+									<input class="submit" type="submit" value="submit">
+								</div>
+							</div>
+						</form>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- footer section-->
+<footer class="ht-footer">
+	<div class="container">
+		<div class="flex-parent-ft">
+			<div class="flex-child-ft item1">
+				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <p>5th Avenue st, manhattan<br>
+				New York, NY 10001</p>
+				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
+			</div>
+			<div class="flex-child-ft item2">
+				<h4>Resources</h4>
+				<ul>
+					<li><a href="#">About</a></li> 
+					<li><a href="#">Blockbuster</a></li>
+					<li><a href="#">Contact Us</a></li>
+					<li><a href="#">Forums</a></li>
+					<li><a href="#">Blog</a></li>
+					<li><a href="#">Help Center</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item3">
+				<h4>Legal</h4>
+				<ul>
+					<li><a href="#">Terms of Use</a></li> 
+					<li><a href="#">Privacy Policy</a></li>	
+					<li><a href="#">Security</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item4">
+				<h4>Account</h4>
+				<ul>
+					<li><a href="#">My Account</a></li> 
+					<li><a href="#">Watchlist</a></li>	
+					<li><a href="#">Collections</a></li>
+					<li><a href="#">User Guide</a></li>
+				</ul>
+			</div>
+			<div class="flex-child-ft item5">
+				<h4>Newsletter</h4>
+				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+				<form action="#">
+					<input type="text" placeholder="Enter your email...">
+				</form>
+				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			</div>
+		</div>
+	</div>
+	<div class="ft-copyright">
+		<div class="ft-left">
+			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
+		</div>
+		<div class="backtotop">
+			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
+		</div>
+	</div>
+
 <!--
 <div style="padding: 70px 0;background-color: #020d18;">
     <div class="container px-4 px-lg-5 mt-5" >
