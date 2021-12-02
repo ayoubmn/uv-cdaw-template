@@ -5,9 +5,12 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Playlists;
+use App\Models\ListedVideo;
+
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
-
+use DB;
 
 class userController extends Controller
 {
@@ -23,7 +26,6 @@ public function updateUser(Request $request) {
 }
 
 public function updateUserAvatar(Request $request) {
-
     if ($request->hasFile('file')) {
                 $image      = $request->file('file');
                 $fileName   = time() . '.' . $image->getClientOriginalExtension();
@@ -33,6 +35,33 @@ public function updateUserAvatar(Request $request) {
 
     }
     return redirect('/user/profile');
+}
+
+
+public function getUserPlaylist(Request $request) {
+    $cat=Category::all();
+    $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
+
+    $media = DB::table('media')
+    ->select('*')
+    ->join('listed_video', 'media.id', '=', 'listed_video.id_media')
+    ->get();
+
+    return view('playlist', ['categories' => $cat,'playlists' => $playlists,'Media'=>$media]);
+}
+
+public function postUserPlaylist(Request $request) {
+    Playlists::updateOrCreate(['creator_id' => Auth::user()->id,'title' => $request->title]);    
+    $cat=Category::all();
+
+    $playlists=Playlists::all();
+    return view('playlist', ['playlists' => $playlists,'categories' => $cat]);
+}
+
+public function postToUsersPlaylist(Request $request) {
+    ListedVideo::updateOrCreate(['id_playlist' => $request->id_playlist,'id_media' => $request->id_media]); 
+    $link="/medias/".strval($request->id_media);
+    return redirect($link);
 }
 
 }

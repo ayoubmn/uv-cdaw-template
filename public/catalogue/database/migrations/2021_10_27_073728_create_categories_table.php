@@ -19,6 +19,20 @@ class CreateCategoriesTable extends Migration
 
             $table->timestamps();
         });
+        // Insert some stuff
+        DB::table('categories')->insert(
+            array(
+                'name' => 'Comedy',
+                'color' => '#FCB700',
+
+            )
+        );
+        DB::table('categories')->insert(
+            array(
+                'name' => 'Drama',
+                'color' => '#C000FC',
+            )
+        );
     }
 
     /**

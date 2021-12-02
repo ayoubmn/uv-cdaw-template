@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Media_Categorie;
-
+use App\Http\Controllers\mediaController;
 use App\Http\Controllers\listeMediasController;
 use App\Http\Controllers\userController;
 
@@ -23,14 +23,18 @@ use App\Http\Controllers\userController;
 Route::get('/', function () {
     $Media=Media::all();
     //\Debugbar::error('hi');
-    //$cat=Media_Categorie::all();
+    $cat_name=Category::all();
     $cat = DB::table('media_categories')
     ->select('*')
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
 
-    return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
+    return view('indexUser', ['categories' => $cat,'cat_name' => $cat_name,'Medias' => $Media]);
 })->name('home');
+
+
+Route::get('/medias/{Media}', [mediaController::class, 'getMedia']);
+
 /*
 //tests
 Route::get('/listeMedias/{date}', 'App\Http\controllers\listeMediasController@getListeMedias');
@@ -49,6 +53,13 @@ Route::name('user')
 
     Route::post('/update',[userController::class, 'updateUser'] );
     Route::post('/updateAvatar',[userController::class, 'updateUserAvatar'] );
+    
+    
+    
+    Route::get('/playlist',[userController::class, 'getUserPlaylist'] );
+    Route::post('/playlist',[userController::class, 'postUserPlaylist'] );
+
+    Route::post('/addToPlaylist',[userController::class, 'postToUsersPlaylist'] );
 
 
   });
@@ -103,10 +114,15 @@ Route::get('/title/{title}', function ($title) {
 */
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $cat=Category::all();
     $Media=Media::all();
+    //\Debugbar::error('hi');
+    $cat_name=Category::all();
+    $cat = DB::table('media_categories')
+    ->select('*')
+    ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
+    ->get();
 
-    return view('indexUser', ['categories' => $cat,'Medias' => $Media]);
+    return view('indexUser', ['categories' => $cat,'cat_name' => $cat_name,'Medias' => $Media]);
 })->name('dashboard');
 
 /*

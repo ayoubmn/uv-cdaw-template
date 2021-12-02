@@ -22,7 +22,7 @@
 
 <div class="page-single">
     <div class="container" style="text-align:center;margin-bottom: 2rem;">
-        <button href="/catalogue/public/admin/addMedias" class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Add a movie <span class="ion-ios-arrow-right"></span></button>
+        <a href="/catalogue/public/admin/addMedias"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Add a movie <span class="ion-ios-arrow-right"></span></button></a>
     </div>
 	<div class="container">
 		<div class="row">

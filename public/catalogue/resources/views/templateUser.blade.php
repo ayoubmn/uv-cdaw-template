@@ -69,7 +69,7 @@
 						</li>	
                         @auth
                         <li class="first"><a class="nav-link" href="#!">Favoris</a></li>
-                        <li class="first"><a class="nav-link" href="#!">Playlists</a></li>
+                        <li class="first"><a class="nav-link" href="/catalogue/public/user/playlist">Playlists</a></li>
                         @endauth
                     </ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
@@ -110,6 +110,9 @@
     @yield('contentMediasAdmin')
     @yield('formContentMediasAdmin')
 
+	@yield('contentMediaPage')
+
+	@yield('contentPlaylist')
 
 
 <!--end of latest new v1 section-->
