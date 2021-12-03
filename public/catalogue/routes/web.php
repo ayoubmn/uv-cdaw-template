@@ -20,20 +20,27 @@ use App\Http\Controllers\userController;
 */
 
 //home page for normal user
-Route::get('/', function () {
-    $Media=Media::all();
+Route::get('/', function (Request $request) {
+    $Media=Media::query();
+    if (request('name')) {
+        $Media=$Media->where('name', 'Like', '%' . request('name') . '%');
+    }
+    $Media=$Media->paginate(8);
+
     //\Debugbar::error('hi');
     $cat_name=Category::all();
     $cat = DB::table('media_categories')
     ->select('*')
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
-
     return view('indexUser', ['categories' => $cat,'cat_name' => $cat_name,'Medias' => $Media]);
 })->name('home');
 
 
 Route::get('/medias/{Media}', [mediaController::class, 'getMedia']);
+
+Route::get('/category/{Category}', [mediaController::class, 'getMediaByCategorie']);
+
 
 /*
 //tests
@@ -114,7 +121,8 @@ Route::get('/title/{title}', function ($title) {
 */
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    $Media=Media::all();
+    return redirect('/');
+    $Media=Media::paginate(8);;
     //\Debugbar::error('hi');
     $cat_name=Category::all();
     $cat = DB::table('media_categories')
@@ -122,6 +130,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
 
+    
     return view('indexUser', ['categories' => $cat,'cat_name' => $cat_name,'Medias' => $Media]);
 })->name('dashboard');
 

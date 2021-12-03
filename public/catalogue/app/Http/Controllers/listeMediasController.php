@@ -11,9 +11,8 @@ class listeMediasController extends Controller
 {
 public function getAdminListeMedias() {
     //$media= Media::with('category')->get();
-    $media= Media::all();
+    $media= Media::paginate(18);
     $cat=Category::all();
-
     return view('listeMediasAdmin', ['media' => $media,'categories' => $cat]);
 }
 

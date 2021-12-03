@@ -53,9 +53,12 @@ public function getUserPlaylist(Request $request) {
 public function postUserPlaylist(Request $request) {
     Playlists::updateOrCreate(['creator_id' => Auth::user()->id,'title' => $request->title]);    
     $cat=Category::all();
-
+    $media = DB::table('media')
+    ->select('*')
+    ->join('listed_video', 'media.id', '=', 'listed_video.id_media')
+    ->get();
     $playlists=Playlists::all();
-    return view('playlist', ['playlists' => $playlists,'categories' => $cat]);
+    return view('playlist', ['playlists' => $playlists,'categories' => $cat,"Media"=>$media]);
 }
 
 public function postToUsersPlaylist(Request $request) {

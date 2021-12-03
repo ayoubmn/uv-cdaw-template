@@ -50,8 +50,7 @@
 				    </div>
 				    <a href="/catalogue/public/">
                         <div class="row">
-                        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/1200px-Netflix_2015_N_logo.svg.png" alt="" width="20" height="30">
-                         <h6>NetFlex</h6>
+                        <img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="100" height="50">
 
                         </div>
                     </a>
@@ -68,7 +67,7 @@
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($categories as $cat)
-								<li><a href="#">{{$cat->name}}</a></li>
+								<li><a href="/catalogue/public/category/{{$cat->name}}">{{$cat->name}}</a></li>
                                 @endforeach
 							</ul>
 						</li>	

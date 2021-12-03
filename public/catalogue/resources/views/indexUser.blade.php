@@ -33,7 +33,7 @@
 <body>
 <!--preloading-->
 <div id="preloader">
-    <img class="logo" src="images/logo1.png" alt="" width="119" height="58">
+    <img class="logo" src="images/netflex_logo.png" alt="" width="100" height="50">
     <div id="status">
         <span></span>
         <span></span>
@@ -71,8 +71,7 @@
 				    </div>
 				    <a href="#">
                         <div class="row">
-                        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/1200px-Netflix_2015_N_logo.svg.png" alt="" width="20" height="30">
-                         <h6>NetFlex</h6>
+                        <img class="logo" src="images/netflex_logo.png" alt="" width="100" height="50">
 
                         </div>
                     </a>
@@ -89,7 +88,7 @@
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($cat_name as $cat)
-								<li><a href="#">{{$cat->name}}</a></li>
+								<li><a href="category/{{$cat->name}}">{{$cat->name}}</a></li>
                                 @endforeach
 							</ul>
 						</li>	
@@ -213,7 +212,7 @@
 		<div class="row ipad-width">
 			<div class="col-md-8 col-sm-12 col-xs-12">
 				<div class="topbar-filter">
-					<p>Found <span>{{count($Medias)}}</span> in total</p>
+					<p>Found <span>{{$Medias->total()}}</span> in total</p>
 					<label>Sort by:</label>
 					<select>
 						<option value="popularity">Popularity Descending</option>
@@ -241,21 +240,9 @@
 					@endforeach	
 				</div>			
 				<div class="topbar-filter">
-					<label>Movies per page:</label>
-					<select>
-						<option value="range">20 Movies</option>
-						<option value="saab">10 Movies</option>
-					</select>
-					
-					<div class="pagination2">
-						<span>Page 1 of 2:</span>
-						<a class="active" href="#">1</a>
-						<a href="#">2</a>
-						<a href="#">3</a>
-						<a href="#">...</a>
-						<a href="#">78</a>
-						<a href="#">79</a>
-						<a href="#"><i class="ion-arrow-right-b"></i></a>
+					<div class="pagination2" style="display: contents;">
+						<span>Page {!! $Medias->currentPage() !!} of {!! $Medias->lastPage() !!}:</span>
+						{!! $Medias->links() !!}
 					</div>
 				</div>
 			</div>
@@ -263,26 +250,26 @@
 				<div class="sidebar">
 					<div class="searh-form">
 						<h4 class="sb-title">Search for movie</h4>
-						<form class="form-style-1" action="#">
+						<form class="form-style-1" action="#" method="GET" role="search">
+						@csrf
 							<div class="row">
 								<div class="col-md-12 form-it">
 									<label>Movie name</label>
-									<input type="text" placeholder="Enter keywords">
+									<input type="text" name="name" placeholder="Enter keywords">
 								</div>
 								<div class="col-md-12 form-it">
 									<label>Genres & Subgenres</label>
 									<div class="group-ip">
 										<select
-											name="skills" multiple="" class="ui fluid dropdown">
-											<option value="">Enter to filter genres</option>
-											<option value="Action1">Action 1</option>
-					                        <option value="Action2">Action 2</option>
-					                        <option value="Action3">Action 3</option>
-					                        <option value="Action4">Action 4</option>
-					                        <option value="Action5">Action 5</option>
+											name="category" multiple="" class="ui fluid dropdown">
+											@foreach($cat_name as $cat)
+											<li><a href="#">{{$cat->name}}</a></li>
+											<option value="{{$cat->name}}">{{$cat->name}}</option>
+											@endforeach
 										</select>
 									</div>	
 								</div>
+								<!--
 								<div class="col-md-12 form-it">
 									<label>Rating Range</label>
 									<select>
@@ -307,6 +294,7 @@
 										</div>
 									</div>
 								</div>
+								-->
 								<div class="col-md-12 ">
 									<input class="submit" type="submit" value="submit">
 								</div>
@@ -395,7 +383,7 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1">
-				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
+				 <a href="index-2.html"><img class="logo" src="images/netflex_logo.png" alt="" width="200" height="10"></a>
 				 <p>5th Avenue st, manhattan<br>
 				New York, NY 10001</p>
 				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
