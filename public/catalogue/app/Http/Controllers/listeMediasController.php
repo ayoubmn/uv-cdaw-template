@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\Media;
 use App\Models\Media_Categorie;
+use App\Models\MediaActor;
 
 class listeMediasController extends Controller
 {
@@ -29,6 +30,10 @@ public function postAdminListeMedias(Request $request) {
     foreach ($request->category as $cat) {
         Media_Categorie::updateOrCreate(['id_media' => $request->id?$request->id:$media->id,'nom_cat' => $cat]);    
     };
+
+    foreach ($request->actor as $key => $value) {
+        MediaActor::updateOrCreate(['media_id' => $media->id,'actor_id' => $value]);    
+    }
     return redirect('/admin/listeMedias');
 }
 

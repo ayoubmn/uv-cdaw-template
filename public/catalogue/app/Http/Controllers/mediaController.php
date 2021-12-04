@@ -7,6 +7,8 @@ use App\Models\Category;
 use App\Models\Media;
 use App\Models\Media_Categorie;
 use App\Models\Playlists;
+use App\Models\Historique;
+
 use Auth;
 use DB;
 
@@ -21,7 +23,19 @@ public function getMedia(Request $request) {
     ->select('*')
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
-    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media,'playlists' => $playlists]);
+    
+    $actors = DB::table('media_actor')
+    ->select('*')
+    ->join('actor', 'media_actor.actor_id', '=', 'actor.id')
+    ->where('media_actor.media_id',$Media->id)
+    ->get();
+
+
+    if (Auth::check()) {
+        Historique::updateOrCreate(['id_user' => Auth::user()->id,'id_media' => $Media->id]);    
+    }
+
+    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media,'playlists' => $playlists,'actors'=>$actors]);
 }
 
 public function getMediaByCategorie(Request $request) {

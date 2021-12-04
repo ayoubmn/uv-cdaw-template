@@ -110,6 +110,14 @@
 </header>
 <!-- END | Header -->
 
+<!--preloading-->
+<div id="preloader">
+    <img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="100" height="50">
+    <div id="status">
+        <span></span>
+        <span></span>
+    </div>
+</div>
 
 <div class="hero user-hero">
 	<div class="container">
@@ -139,13 +147,16 @@
                 		@csrf
 							<div class="row">
 								<div class="col-md-12">
-									<div class="form-group">
-										<input type="file" name="file" placeholder="" id="file" src="/catalogue/public/images/upload.png">
+									<div class="">
+										<label for="file" class="custom-file-upload">
+											<img src="/catalogue/public/images/upload.png" class="profile-pic"  width="60rem" height="60rem">
+										</label>
+										<input type="file" name="file" style="display:none;" id="file" >
 										<span class="text-danger">{{ $errors->first('file') }}</span>
 									</div>
 								</div>
 								<div class="col-md-12">
-									<button type="submit" class="redbtn">enregistrer</button>
+									<button type="submit" id="avatarUpload" class="redbtn" >enregistrer</button>
 								</div>
 							</div>     
 						</form>
@@ -231,6 +242,31 @@
 						</div>	
 					</form>
 -->
+				</div>
+				<!-- History -->
+				<div class="form-style-1 user-pro" action="#" id="history">
+					<h4>02. Historique</h4>
+					<div>
+						<div class=" movie-items" style="padding: 30px 0;background-color: #0b1a2a;">
+							<div class="container">
+								<div class="row">
+									<div  class="slick-multiItemSlider">
+										@foreach($medias as $media)
+												<div class="movie-item" style="max-width:193px;">
+													<div class="mv-img">
+														<a href="#"><img src="{{$media->avatar}}" alt="" width="193" height="297"></a>
+													</div>
+													<div class="title-in">
+														<h6><a href="#">{{$media->name}}</a></h6>
+														<p><i class="ion-android-star"></i><span>{{$media->rating}}</span> /10</p>
+													</div>
+												</div>
+										@endforeach
+									</div>
+								</div>	
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>

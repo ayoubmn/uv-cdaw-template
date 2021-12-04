@@ -9,15 +9,8 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12">
-                <div class="container" id="playlistCreation">
-                    <form action="/catalogue/public/user/playlist" method="post" class="form-inline" style="display: inline-block;min-width:50%;">
-                    @csrf
-                        <row style="">
-                            <input type="text" name="title" placeholder="New playlist">
-                            </br>
-                            <input class="btn" type="submit" value="Create" style="  background-color: #4CAF50;border: none;color: white;padding: 16px 32px;text-decoration: none;margin: 4px 2px;cursor: pointer;">
-                        </row>
-                    </form>
+                <div class="container" >
+                    <h1>{{$cat_name[0]->name}}</h1>
                 </div>
 			</div>
 		</div>

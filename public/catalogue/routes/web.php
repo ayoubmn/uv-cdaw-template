@@ -3,10 +3,13 @@
 use Illuminate\Support\Facades\Route;
 use App\Models\Category;
 use App\Models\Media;
+use App\Models\Actor;
 use App\Models\Media_Categorie;
 use App\Http\Controllers\mediaController;
 use App\Http\Controllers\listeMediasController;
 use App\Http\Controllers\userController;
+use Illuminate\Http\Request;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +28,7 @@ Route::get('/', function (Request $request) {
     if (request('name')) {
         $Media=$Media->where('name', 'Like', '%' . request('name') . '%');
     }
-    $Media=$Media->paginate(8);
+    $Media=$Media->orderBy('created_at', 'DESC')->paginate(8);
 
     //\Debugbar::error('hi');
     $cat_name=Category::all();
@@ -55,7 +58,13 @@ Route::name('user')
   ->group(function () {
     Route::get('/profile', function () {
         $cat=Category::all();
-        return view('profile', ['categories' => $cat]);
+        $media = DB::table('media')
+        ->select('*')
+        ->join('historique', 'media.id', '=', 'historique.id_media')
+        ->where('id_user', Auth::user()->id)
+        ->orderBy('historique.created_at', 'DESC')
+        ->get();
+        return view('profile', ['categories' => $cat,'medias'=>$media]);
     });
 
     Route::post('/update',[userController::class, 'updateUser'] );
@@ -64,6 +73,7 @@ Route::name('user')
     
     
     Route::get('/playlist',[userController::class, 'getUserPlaylist'] );
+
     Route::post('/playlist',[userController::class, 'postUserPlaylist'] );
 
     Route::post('/addToPlaylist',[userController::class, 'postToUsersPlaylist'] );
@@ -84,7 +94,14 @@ Route::name('admin')
     //access to the form for adding new Medias
     Route::get('/addMedias', function () {
         $cat=Category::all();
-        return view('formAddMediasAdmin', ['categories' => $cat]);
+        $actors=Actor::all();
+        return view('formAddMediasAdmin', ['categories' => $cat,'actors'=>$actors]);
+    });
+
+    Route::post('/addActor', function (Request $request) {
+        //$cat=Category::all();
+        Actor::updateOrCreate(['nom' => $request->nom,'prenom' => $request->prenom]);   
+        return back()->with('status', "Successfully submitted !");
     });
 
 

@@ -50,6 +50,7 @@ public function getUserPlaylist(Request $request) {
     return view('playlist', ['categories' => $cat,'playlists' => $playlists,'Media'=>$media]);
 }
 
+
 public function postUserPlaylist(Request $request) {
     Playlists::updateOrCreate(['creator_id' => Auth::user()->id,'title' => $request->title]);    
     $cat=Category::all();
