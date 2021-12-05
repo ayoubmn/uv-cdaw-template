@@ -19,7 +19,6 @@
 	<meta name="format-detection" content="telephone-no">
 	<meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
 
 
@@ -63,7 +62,7 @@
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							Category <i class="fa fa-angle-down" aria-hidden="true"></i>
+							Categorie <i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($categories as $cat)
@@ -80,7 +79,7 @@
                         @auth
                             <!-- Authentication -->
                         <h6 style="color:white;margin-right:0.5em;">
-                            Welcome 
+                            Bienvenue 
                             <a href="user/profile">
                                 {{ Auth::user()->nom }}
 							</a>
@@ -91,15 +90,15 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-						            logout
+						            se déconnecter
                                 </x-jet-dropdown-link>
                             </form>
                         </li>
                         @else
 						<!--<li class=""><a href="login/" id="login">LOG In</a></li>
 						<li class="btn "><a href="register/" id='register'>sign up</a></li>-->
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
+						<li class="loginLink"><a href="#">Connexion</a></li>
+						<li class="btn signupLink"><a href="#">S'inscrire</a></li>
 
                         @endauth
 					</ul>
@@ -127,7 +126,7 @@
 					<h1>Profile de {{Auth::user()->prenom }} {{Auth::user()->nom }}</h1>
 					<ul class="breadcumb">
 						<li class="active"><a href="#">Accueil</a></li>
-						<li> <span class="ion-ios-arrow-right"></span>Profil</li>
+						<li> <span class="ion-ios-arrow-right"></span>Profile</li>
 					</ul>
 				</div>
 			</div>
@@ -164,15 +163,14 @@
 					<div class="user-fav">
 						<p>Détails du compte</p>
 						<ul>
-							<li  class="active"><a href="userprofile.html">Profil</a></li>
+							<li  class="active"><a href="userprofile.html">Profile</a></li>
 							<li><a href="userfavoritelist.html">Films préférés</a></li>
-							<li><a href="userrate.html">Historique</a></li>
+							<li><a href="#history">Historique</a></li>
 						</ul>
 					</div>
 					<div class="user-fav">
 						<p>Autres</p>
 						<ul>
-							<li><a href="#">Changer le mot de passe</a></li>
 							<li>                            
 								<form method="POST" action="{{ route('logout') }}">
                                 @csrf
@@ -248,7 +246,7 @@
 					<h4>02. Historique</h4>
 					<div>
 						<div class=" movie-items" style="padding: 30px 0;background-color: #0b1a2a;">
-							<div class="container">
+							<div class="container" style="max-width: -webkit-fill-available;">
 								<div class="row">
 									<div  class="slick-multiItemSlider">
 										@foreach($medias as $media)
@@ -278,57 +276,14 @@
 <footer class="ht-footer">
 	<div class="container">
 		<div class="flex-parent-ft">
-			<div class="flex-child-ft item1">
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
-			</div>
-			<div class="flex-child-ft item2">
-				<h4>Resources</h4>
-				<ul>
-					<li><a href="#">About</a></li> 
-					<li><a href="#">Blockbuster</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Forums</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Help Center</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item3">
-				<h4>Legal</h4>
-				<ul>
-					<li><a href="#">Terms of Use</a></li> 
-					<li><a href="#">Privacy Policy</a></li>	
-					<li><a href="#">Security</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item4">
-				<h4>Account</h4>
-				<ul>
-					<li><a href="#">My Account</a></li> 
-					<li><a href="#">Watchlist</a></li>	
-					<li><a href="#">Collections</a></li>
-					<li><a href="#">User Guide</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item5">
-				<h4>Newsletter</h4>
-				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
-				<form action="#">
-					<input type="text" placeholder="Enter your email...">
-				</form>
-				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			<div class="flex-child-ft item1" style="margin-left: auto;margin-right: auto;text-align: center;">
+				 <a href="#"><img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="200" height="10"></a>
+				 <p>ayoubmn<br>abdou</p>
+				<h4>CDAW 2021</h4>
 			</div>
 		</div>
 	</div>
-	<div class="ft-copyright">
-		<div class="ft-left">
-			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-		</div>
-		<div class="backtotop">
-			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
-		</div>
-	</div>
+
 </footer>
 <!-- end of footer section-->
 

@@ -8,7 +8,6 @@
     <meta name="author" content="" />
     <title>Netflex</title>
     <!-- Favicon-->
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
     
 
 </head>

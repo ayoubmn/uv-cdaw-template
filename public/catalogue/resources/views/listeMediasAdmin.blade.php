@@ -22,8 +22,12 @@
 
 <div class="page-single">
     <div class="container" style="text-align:center;margin-bottom: 2rem;">
-        <a href="/catalogue/public/admin/addMedias"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Add a movie <span class="ion-ios-arrow-right"></span></button></a>
-    </div>
+        <a href="/catalogue/public/admin/addMedias"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Ajouter un film <span class="ion-ios-arrow-right"></span></button></a>
+	</div>
+    <div class="container" style="text-align:center;margin-bottom: 2rem;">
+        <a href="/catalogue/public/admin/usersManage"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Gerer les utilisateur<span class="ion-ios-arrow-right"></span></button></a>
+
+	</div>
 	<div class="container">
 		<div class="row">
 			<div class="col-md-12 col-sm-12 col-xs-12">

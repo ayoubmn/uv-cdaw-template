@@ -25,16 +25,7 @@
 		<div class="row ipad-width">
 			<div class="col-md-8 col-sm-12 col-xs-12">
 				<div class="topbar-filter">
-					<p>Found <span>{{$Medias->total()}}</span> in total</p>
-					<label>Sort by:</label>
-					<select>
-						<option value="popularity">Popularity Descending</option>
-						<option value="popularity">Popularity Ascending</option>
-						<option value="rating">Rating Descending</option>
-						<option value="rating">Rating Ascending</option>
-						<option value="date">Release date Descending</option>
-						<option value="date">Release date Ascending</option>
-					</select>
+					<p><span>{{$Medias->total()}}</span>élements au totale</p>
 				</div>
 				<div class="flex-wrap-movielist ">
 					@foreach($Medias as $media)
@@ -43,7 +34,7 @@
                             <img src="{{$media->avatar}}" alt="">
                         </div>
                         <div class="hvr-inner">
-                            <a  href="/catalogue/public/medias/{{$media->id}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                            <a  href="/catalogue/public/medias/{{$media->id}}">Voir plus <i class="ion-android-arrow-dropright"></i> </a>
                         </div>
 							<div class="mv-item-infor">
 								<h6><a href="#">{{$media->name}}</a></h6>
@@ -62,13 +53,13 @@
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="sidebar">
 					<div class="searh-form">
-						<h4 class="sb-title">Search for movie</h4>
+						<h4 class="sb-title">Recherche</h4>
 						<form class="form-style-1" action="#" method="GET" role="search">
 						@csrf
 							<div class="row">
 								<div class="col-md-12 form-it">
-									<label>Movie name</label>
-									<input type="text" name="name" placeholder="Enter keywords">
+									<label>Titre</label>
+									<input type="text" name="name" placeholder="Saisir des mots-clés">
 								</div>
 								<div class="col-md-12 form-it">
 									<label>Genres & Subgenres</label>
@@ -82,34 +73,9 @@
 										</select>
 									</div>	
 								</div>
-								<!--
-								<div class="col-md-12 form-it">
-									<label>Rating Range</label>
-									<select>
-									  <option value="range">-- Select the rating range below --</option>
-									  <option value="saab">-- Select the rating range below --</option>
-									</select>
-								</div>
-								<div class="col-md-12 form-it">
-									<label>Release Year</label>
-									<div class="row">
-										<div class="col-md-6">
-											<select>
-											  <option value="range">From</option>
-											  <option value="number">10</option>
-											</select>
-										</div>
-										<div class="col-md-6">
-											<select>
-											  <option value="range">To</option>
-											  <option value="number">20</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								-->
+
 								<div class="col-md-12 ">
-									<input class="submit" type="submit" value="submit">
+									<input class="submit" type="submit" value="Recherche">
 								</div>
 							</div>
 						</form>

@@ -18,7 +18,6 @@
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone-no">
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
 
 
@@ -69,7 +68,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="#">
+				    <a href="/catalogue/public/">
                         <div class="row">
                         <img class="logo" src="images/netflex_logo.png" alt="" width="100" height="50">
 
@@ -84,7 +83,7 @@
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							Category <i class="fa fa-angle-down" aria-hidden="true"></i>
+							Categorie <i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($cat_name as $cat)
@@ -101,7 +100,7 @@
                         @auth
                             <!-- Authentication -->
                         <h6 style="color:white;margin-right:0.5em;">
-                            Welcome 
+                            Bienvenue 
                             <a href="user/profile">
                                 {{ Auth::user()->nom }}
 							</a>
@@ -112,15 +111,15 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-						            logout
+						            se déconnecter
                                 </x-jet-dropdown-link>
                             </form>
                         </li>
                         @else
 						<!--<li class=""><a href="login/" id="login">LOG In</a></li>
 						<li class="btn "><a href="register/" id='register'>sign up</a></li>-->
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
+						<li class="loginLink"><a href="#">Connexion</a></li>
+						<li class="btn signupLink"><a href="#">S'inscrire</a></li>
 
                         @endauth
 					</ul>
@@ -147,12 +146,12 @@
 	    				</div>
 	    				<h1><a href="#">{{$Media->name}}&#32;<span>{{$Media->date}}</span></a></h1>
 						<div class="social-btn">
-							<a href="{{$Media->url}}" class="parent-btn"><i class="ion-play"></i> Watch Trailer</a>
+							<a href="{{$Media->url}}" class="parent-btn"><i class="ion-play"></i> Regarder la bande annonce</a>
                             @auth
-							<a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
+							<a href="#" class="parent-btn"><i class="ion-heart"></i> Ajouter au Favorite</a>
                             @endauth
 							<div class="hover-bnt">
-								<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
+								<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>partager</a>
 								<div class="hvr-item">
 									<a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
 									<a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
@@ -164,7 +163,7 @@
 	    				<div class="mv-details">
 	    					<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
 	    					<ul class="mv-infor">
-	    						<li>  Run Time: {{$Media->duree}} </li>
+	    						<li>  La durée: {{$Media->duree}} </li>
 	    						<li>  {{$Media->realisateur}} </li>
 	    					</ul>
 	    				</div>
@@ -212,16 +211,7 @@
 		<div class="row ipad-width">
 			<div class="col-md-8 col-sm-12 col-xs-12">
 				<div class="topbar-filter">
-					<p>Found <span>{{$Medias->total()}}</span> in total</p>
-					<label>Sort by:</label>
-					<select>
-						<option value="popularity">Popularity Descending</option>
-						<option value="popularity">Popularity Ascending</option>
-						<option value="rating">Rating Descending</option>
-						<option value="rating">Rating Ascending</option>
-						<option value="date">Release date Descending</option>
-						<option value="date">Release date Ascending</option>
-					</select>
+					<p><span>{{$Medias->total()}}</span> élements au totale</p>
 				</div>
 				<div class="flex-wrap-movielist ">
 					@foreach($Medias as $media)
@@ -230,7 +220,7 @@
                             <img src="{{$media->avatar}}" alt="">
                         </div>
                         <div class="hvr-inner">
-                            <a  href="/catalogue/public/medias/{{$media->id}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                            <a  href="/catalogue/public/medias/{{$media->id}}"> Voir plus <i class="ion-android-arrow-dropright"></i> </a>
                         </div>
 							<div class="mv-item-infor">
 								<h6><a href="#">{{$media->name}}</a></h6>
@@ -249,19 +239,19 @@
 			<div class="col-md-4 col-sm-12 col-xs-12">
 				<div class="sidebar">
 					<div class="searh-form">
-						<h4 class="sb-title">Search for movie</h4>
+						<h4 class="sb-title">Recherche</h4>
 						<form class="form-style-1" action="#" method="GET" role="search">
 						@csrf
 							<div class="row">
 								<div class="col-md-12 form-it">
-									<label>Movie name</label>
-									<input type="text" name="name" placeholder="Enter keywords">
+									<label>Titre</label>
+									<input type="text" name="name" placeholder="Saisir des mots-clés">
 								</div>
 								<div class="col-md-12 form-it">
 									<label>Genres & Subgenres</label>
 									<div class="group-ip">
 										<select
-											name="category" multiple="" class="ui fluid dropdown">
+											name="category[]" multiple="" class="ui fluid dropdown">
 											@foreach($cat_name as $cat)
 											<li><a href="#">{{$cat->name}}</a></li>
 											<option value="{{$cat->name}}">{{$cat->name}}</option>
@@ -296,7 +286,7 @@
 								</div>
 								-->
 								<div class="col-md-12 ">
-									<input class="submit" type="submit" value="submit">
+									<input class="submit" type="submit" value="Recherche">
 								</div>
 							</div>
 						</form>
@@ -382,59 +372,16 @@
 <footer class="ht-footer">
 	<div class="container">
 		<div class="flex-parent-ft">
-			<div class="flex-child-ft item1">
-				 <a href="index-2.html"><img class="logo" src="images/netflex_logo.png" alt="" width="200" height="10"></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
-			</div>
-			<div class="flex-child-ft item2">
-				<h4>Resources</h4>
-				<ul>
-					<li><a href="#">About</a></li> 
-					<li><a href="#">Blockbuster</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Forums</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Help Center</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item3">
-				<h4>Legal</h4>
-				<ul>
-					<li><a href="#">Terms of Use</a></li> 
-					<li><a href="#">Privacy Policy</a></li>	
-					<li><a href="#">Security</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item4">
-				<h4>Account</h4>
-				<ul>
-					<li><a href="#">My Account</a></li> 
-					<li><a href="#">Watchlist</a></li>	
-					<li><a href="#">Collections</a></li>
-					<li><a href="#">User Guide</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item5">
-				<h4>Newsletter</h4>
-				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
-				<form action="#">
-					<input type="text" placeholder="Enter your email...">
-				</form>
-				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			<div class="flex-child-ft item1" style="margin-left: auto;margin-right: auto;text-align: center;">
+				 <a href="#"><img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="200" height="10"></a>
+				 <p>ayoubmn<br>abdou</p>
+				<h4>CDAW 2021</h4>
 			</div>
 		</div>
 	</div>
-	<div class="ft-copyright">
-		<div class="ft-left">
-			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-		</div>
-		<div class="backtotop">
-			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
-		</div>
-	</div>
+
 </footer>
+<!-- end of footer section-->
 <!-- end of footer section-->
 
 <script src="js/jquery.js"></script>

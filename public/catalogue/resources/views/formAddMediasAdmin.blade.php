@@ -49,7 +49,7 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label></br>
-                    <label class="radio-inline"><input type="radio" name="type" value="Film" checked>Film&#32;</label>
+                    <label class="radio-inline"  style='margin-left:2rem;'><input type="radio" name="type" value="Film" checked>Film&#32;</label>
                     <label class="radio-inline"><input type="radio" name="type" value="Serie">Serie&#32;</label>
                     <label class="radio-inline"><input type="radio" name="type" value="Anime">Anime</label>
 
@@ -61,7 +61,7 @@
                 <div class="form-group">
                     <label for="category">Category</label></br>
                     @foreach($categories as $cat)
-                    <div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline" style='margin-left:2rem;'>
                         <input class="form-check-input" name="category[]" type="checkbox" id={{$cat->name}} value={{$cat->name}}>
                         <label class="form-check-label" for={{$cat->name}}>{{$cat->name}}</label>
                     </div>
