@@ -68,7 +68,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="../">
+				    <a href="/">
                         <div class="row">
                         <img class="logo" src="images/netflex_logo.png" alt="" width="100" height="50">
 
@@ -92,8 +92,8 @@
 							</ul>
 						</li>	
                         @auth
-                        <li class="first"><a class="nav-link" href="../user/favori">Favoris</a></li>
-                        <li class="first"><a class="nav-link" href="../user/playlist">Playlists</a></li>
+                        <li class="first"><a class="nav-link" href="user/favori">Favoris</a></li>
+                        <li class="first"><a class="nav-link" href="user/playlist">Playlists</a></li>
                         @endauth
                     </ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
