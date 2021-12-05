@@ -94,7 +94,7 @@
 							</ul>
 						</li>	
                         @auth
-                        <li class="first"><a class="nav-link" href="#!">Favoris</a></li>
+                        <li class="first"><a class="nav-link" href="/catalogue/public/user/favori">Favoris</a></li>
                         <li class="first"><a class="nav-link" href="/catalogue/public/user/playlist">Playlists</a></li>
                         @endauth
                     </ul>

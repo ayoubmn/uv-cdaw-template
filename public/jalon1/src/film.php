@@ -57,7 +57,7 @@
                             <li><a class="dropdown-item" href="#!">Horror</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#!">Favoris</a></li>
+                    <li class="nav-item"><a class="nav-link" href="/catalogue/public/user/favori">Favoris</a></li>
                 </ul>
                 <!-- Search form -->
                 <div class="input-group ps-5">

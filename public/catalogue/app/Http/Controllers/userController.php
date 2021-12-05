@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Models\User;
+use App\Models\Favori;
 use App\Models\Playlists;
 use App\Models\ListedVideo;
 
@@ -35,6 +36,26 @@ public function updateUserAvatar(Request $request) {
 
     }
     return redirect('/user/profile');
+}
+
+public function getUserFavori(Request $request) {
+    $cat=Category::all();
+    $favoris=Favori::where('user_id', Auth::user()->id)->get();
+
+    $media = DB::table('media')
+    ->select('*')
+    ->join('favori', 'media.id', '=', 'favori.media_id')
+    ->get();
+
+    return view('favori', ['categories' => $cat,'favoris' => $favoris,'Media'=>$media]);
+}
+
+public function postUserFavori(Request $request) {
+    Favori::updateOrCreate(['user_id' => Auth::user()->id,'title' => $request->title]);    
+    $cat=Category::all();
+
+    $favoris=Favoris::all();
+    return view('favori', ['favoris' => $favoris,'categories' => $cat]);
 }
 
 

@@ -7,6 +7,7 @@ use App\Models\Category;
 use App\Models\Media;
 use App\Models\Media_Categorie;
 use App\Models\Playlists;
+use App\Models\Favori;
 use Auth;
 use DB;
 
