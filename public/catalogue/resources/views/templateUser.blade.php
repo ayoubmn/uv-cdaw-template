@@ -22,8 +22,8 @@
     <!-- Core theme CSS (includes Bootstrap)
     <link href="css/index.css" rel="stylesheet" />-->
 	<!-- CSS files -->
-	<link rel="stylesheet" href="/catalogue/public/css/plugins.css">
-	<link rel="stylesheet" href="/catalogue/public/css/style.css">
+	<link rel="stylesheet" href="../css/plugins.css">
+	<link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
 
@@ -42,9 +42,9 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="/catalogue/public">
+				    <a href="../">
                         <div class="row">
-                        <img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="100" height="50">
+                        <img class="logo" src="../images/netflex_logo.png" alt="" width="100" height="50">
 
                         </div>
                     </a>
@@ -61,13 +61,13 @@
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($categories as $cat)
-								<li><a href="/catalogue/public/category/{{$cat->name}}">{{$cat->name}}</a></li>
+								<li><a href="../category/{{$cat->name}}">{{$cat->name}}</a></li>
                                 @endforeach
 							</ul>
 						</li>	
                         @auth
-                        <li class="first"><a class="nav-link" href="/catalogue/public/user/favori">Favoris</a></li>
-                        <li class="first"><a class="nav-link" href="/catalogue/public/user/playlist">Playlists</a></li>
+                        <li class="first"><a class="nav-link" href="../user/favori">Favoris</a></li>
+                        <li class="first"><a class="nav-link" href="../user/playlist">Playlists</a></li>
                         @endauth
                     </ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
@@ -75,7 +75,7 @@
                             <!-- Authentication -->
                         <h6 style="color:white;margin-right:0.5em;">
                             Bienvenue 
-                            <a href="/catalogue/public/user/profile">
+                            <a href="../user/profile">
                                 {{ Auth::user()->nom }}
 							</a>
                         </h6>
@@ -120,7 +120,7 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1" style="margin-left: auto;margin-right: auto;text-align: center;">
-				 <a href="#"><img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="200" height="10"></a>
+				 <a href="#"><img class="logo" src="../images/netflex_logo.png" alt="" width="200" height="10"></a>
 				 <p>ayoubmn<br>abdou</p>
 				<h4>CDAW 2021</h4>
 			</div>
@@ -130,10 +130,10 @@
 </footer>
 <!-- end of footer section-->
 
-<script src="/catalogue/public/js/jquery.js"></script>
-<script src="/catalogue/public/js/plugins.js"></script>
-<script src="/catalogue/public/js/plugins2.js"></script>
-<script src="/catalogue/public/js/custom.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/plugins2.js"></script>
+<script src="../js/custom.js"></script>
 </body>
 
 <!-- homev307:29-->

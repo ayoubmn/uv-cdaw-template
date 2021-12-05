@@ -10,7 +10,7 @@
 		<div class="row">
 			<div class="col-md-6">
                 <div class="" id="playlistCreation">
-                    <form action="/catalogue/public/user/playlist" method="post" class="form-inline" style="display: inline-block;min-width:50%;">
+                    <form action="../user/playlist" method="post" class="form-inline" style="display: inline-block;min-width:50%;">
                     @csrf
                         <row style="">
                             <input type="text" name="title" placeholder="Nouvelle playlist" style="min-width: 40rem;">
@@ -22,7 +22,7 @@
 			</div>
 			<div class="col-md-6">
                 <div class="" id="playlistCreation">
-                    <form action="/catalogue/public/user/searchPlaylist" method="post" class="form-inline" style="display: inline-block;min-width:50%;">
+                    <form action="../user/searchPlaylist" method="post" class="form-inline" style="display: inline-block;min-width:50%;">
                     @csrf
                         <row style="">
                             <input type="text" name="name" placeholder="recherche playlist" style="min-width: 40rem;">

@@ -16,16 +16,15 @@ use DB;
 class mediaController extends Controller
 {
 public function getMedia(Request $request) {
+    $favoris=null;
+    $playlists=null;
     $Media = Media::where("id",$request->Media)->first();
-    $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
-    $favoris=Favori::where('user_id', Auth::user()->id)->get();
     //\Debugbar::error('hi');
     $cat_name=Category::all();
     $cat = DB::table('media_categories')
     ->select('*')
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
-    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists]);
     
     $actors = DB::table('media_actor')
     ->select('*')
@@ -35,10 +34,12 @@ public function getMedia(Request $request) {
 
 
     if (Auth::check()) {
-        Historique::updateOrCreate(['id_user' => Auth::user()->id,'id_media' => $Media->id]);    
+        Historique::updateOrCreate(['id_user' => Auth::user()->id,'id_media' => $Media->id]);
+        $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
+        $favoris=Favori::where('user_id', Auth::user()->id)->get();
     }
 
-    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media,'playlists' => $playlists,'actors'=>$actors]);
+    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists,'actors'=>$actors]);
 }
 
 public function getMediaByCategorie(Request $request) {

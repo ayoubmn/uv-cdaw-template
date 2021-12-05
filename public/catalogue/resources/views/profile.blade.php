@@ -25,8 +25,8 @@
     <!-- Core theme CSS (includes Bootstrap)
     <link href="css/index.css" rel="stylesheet" />-->
 	<!-- CSS files -->
-	<link rel="stylesheet" href="/catalogue/public/css/plugins.css">
-	<link rel="stylesheet" href="/catalogue/public/css/style.css">
+	<link rel="stylesheet" href="../css/plugins.css">
+	<link rel="stylesheet" href="../css/style.css">
 
 
 </head>
@@ -47,9 +47,9 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="/catalogue/public/">
+				    <a href="../">
                         <div class="row">
-                        <img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="100" height="50">
+                        <img class="logo" src="../images/netflex_logo.png" alt="" width="100" height="50">
 
                         </div>
                     </a>
@@ -66,13 +66,13 @@
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($categories as $cat)
-								<li><a href="/catalogue/public/category/{{$cat->name}}">{{$cat->name}}</a></li>
+								<li><a href="../category/{{$cat->name}}">{{$cat->name}}</a></li>
                                 @endforeach
 							</ul>
 						</li>	
                         @auth
-                        <li class="first"><a class="nav-link" href="/catalogue/public/user/favori">Favoris</a></li>
-                        <li class="first"><a class="nav-link" href="#!">Playlists</a></li>
+                        <li class="first"><a class="nav-link" href="../user/favori">Favoris</a></li>
+                        <li class="first"><a class="nav-link" href="../user/playlist">Playlists</a></li>
                         @endauth
                     </ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
@@ -111,7 +111,7 @@
 
 <!--preloading-->
 <div id="preloader">
-    <img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="100" height="50">
+    <img class="logo" src="../images/netflex_logo.png" alt="" width="100" height="50">
     <div id="status">
         <span></span>
         <span></span>
@@ -141,14 +141,14 @@
 				<div class="user-information">
 					<div class="user-img">
 						<a href="#"><img src="{{Auth::user()->profile_photo_path }}" class="profile-pic"  alt=""><br></a>
-						<form action="/catalogue/public/user/updateAvatar" enctype="multipart/form-data" class="user" method="POST">
+						<form action="../user/updateAvatar" enctype="multipart/form-data" class="user" method="POST">
 						<form method="POST" enctype="multipart/form-data" id="laravel-ajax-file-upload" action="javascript:void(0)" >
                 		@csrf
 							<div class="row">
 								<div class="col-md-12">
 									<div class="">
 										<label for="file" class="custom-file-upload">
-											<img src="/catalogue/public/images/upload.png" class="profile-pic"  width="60rem" height="60rem">
+											<img src="../images/upload.png" class="profile-pic"  width="60rem" height="60rem">
 										</label>
 										<input type="file" name="file" style="display:none;" id="file" >
 										<span class="text-danger">{{ $errors->first('file') }}</span>
@@ -187,7 +187,7 @@
 			</div>
 			<div class="col-md-9 col-sm-12 col-xs-12">
 				<div class="form-style-1 user-pro" action="#">
-					<form action="/catalogue/public/user/update" class="user" method="POST">
+					<form action="../user/update" class="user" method="POST">
                 		@csrf
 						<h4>01. Détails du profil</h4>
 						<div class="row">
@@ -277,7 +277,7 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1" style="margin-left: auto;margin-right: auto;text-align: center;">
-				 <a href="#"><img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="200" height="10"></a>
+				 <a href="#"><img class="logo" src="../images/netflex_logo.png" alt="" width="200" height="10"></a>
 				 <p>ayoubmn<br>abdou</p>
 				<h4>CDAW 2021</h4>
 			</div>
@@ -287,13 +287,13 @@
 </footer>
 <!-- end of footer section-->
 
-<script src="/catalogue/public/js/jquery.js"></script>
-<script src="/catalogue/public/js/plugins.js"></script>
-<script src="/catalogue/public/js/plugins2.js"></script>
-<script src="/catalogue/public/js/custom.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="../js/plugins.js"></script>
+<script src="../js/plugins2.js"></script>
+<script src="../js/custom.js"></script>
 
 <!-- profile script -->
-<script src="/catalogue/public/js/profile.js"></script>
+<script src="../js/profile.js"></script>
 </body>
 
 <!-- homev307:29-->

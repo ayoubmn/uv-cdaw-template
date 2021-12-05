@@ -34,7 +34,7 @@
                             <img src="{{$media->avatar}}" alt="">
                         </div>
                         <div class="hvr-inner">
-                            <a  href="/catalogue/public/medias/{{$media->id}}">Voir plus <i class="ion-android-arrow-dropright"></i> </a>
+                            <a  href="../medias/{{$media->id}}">Voir plus <i class="ion-android-arrow-dropright"></i> </a>
                         </div>
 							<div class="mv-item-infor">
 								<h6><a href="#">{{$media->name}}</a></h6>

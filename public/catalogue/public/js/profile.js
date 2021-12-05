@@ -61,7 +61,7 @@ $(document).ready(function (e) {
         var formData = new FormData(this);
         $.ajax({
             type: 'POST',
-            url: "http://localhost:8080/catalogue/public/user/updateAvatar",
+            url: "http://localhost:8080../user/updateAvatar",
             data: formData,
             cache: false,
             contentType: false,

@@ -2,12 +2,12 @@
 @extends('templateUser')
 @section('formContentMediasAdmin')
 
-<link rel="stylesheet" href="/catalogue/public/css/form.css">
+<link rel="stylesheet" href="../css/form.css">
 
 <!-------------------------------------------->
 <div class="playlist-popup">
 	<div class="form-popup" id="popupForm">
-		<form action="/catalogue/public/admin/addActor" class="form-container" method="POST" >
+		<form action="../admin/addActor" class="form-container" method="POST" >
 		@csrf
 			<h6>Veuillez remplir le données</h6>
 			</br>
@@ -15,7 +15,7 @@
             <br/>
 			<input name="prenom" id="prenom" placeholder="prenom"  style="padding: 12px 20px;">
 			</br>			
-			<button type="submit" formaction="/catalogue/public/admin/addActor" class="btn">Ajouter</button>
+			<button type="submit" formaction="../admin/addActor" class="btn">Ajouter</button>
             <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
 
 		</form>
@@ -41,7 +41,7 @@
 <div class="page-single">
     @if(empty($media))
         <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;background-color:white;padding: 1rem;border-radius: 1rem;">
-            <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
+            <form id="addMedia" method="POST" action="../admin/addMedias">
                 @csrf
                 <div class="form-group">
                     <label for="name">Name</label>
@@ -128,7 +128,7 @@
         </div>
     @else
         <div class="container" style="margin-top: 1rem;margin-bottom: 1rem;width:70%;background-color:white;padding: 1rem;border-radius: 1rem;">
-            <form id="addMedia" method="POST" action="/catalogue/public/admin/addMedias">
+            <form id="addMedia" method="POST" action="../admin/addMedias">
                 @csrf
                 <div class="form-group" style="display: none;">
                     <label for="id">ID</label>

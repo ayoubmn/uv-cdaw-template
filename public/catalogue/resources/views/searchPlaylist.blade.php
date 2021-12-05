@@ -35,7 +35,7 @@
                                 <h1 style="color:white;text-align:center;margin-bottom:1rem;">{{$playlist->title}}</h1>
                             </div>
                             <div class="col-md-6">
-                                <form action="/catalogue/public/user/playlistAbonn" method="post">
+                                <form action="../user/playlistAbonn" method="post">
                                     @csrf
                                     <input class="btn" type="hidden" name="id_playlist" value="{{$playlist->id_playlist}}" >
 

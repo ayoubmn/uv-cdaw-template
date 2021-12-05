@@ -41,12 +41,12 @@
                 <tbody>
                     @foreach($users as $user)
                     <tr>
-                        <td><img src="{{$user->profile_photo_path?$user->profile_photo_path:'/catalogue/public/images/uploads/author2.png'}}" width="50rem"></td>
+                        <td><img src="{{$user->profile_photo_path?$user->profile_photo_path:'../images/uploads/author2.png'}}" width="50rem"></td>
                         <td>{{$user->nom}}</td>
                         <td>{{$user->prenom}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->role==1?"Admin":"User"}}</td>
-                        <form action="/catalogue/public/admin/changeUserStatut" method="post">
+                        <form action="../admin/changeUserStatut" method="post">
                         @csrf
                             <input type="hidden" name="id" value="{{$user->id}}">
                             @if($user->statut==1)

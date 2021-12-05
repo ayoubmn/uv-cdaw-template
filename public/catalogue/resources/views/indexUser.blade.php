@@ -68,7 +68,7 @@
 							<span></span>
 						</div>
 				    </div>
-				    <a href="/catalogue/public/">
+				    <a href="../">
                         <div class="row">
                         <img class="logo" src="images/netflex_logo.png" alt="" width="100" height="50">
 
@@ -92,8 +92,8 @@
 							</ul>
 						</li>	
                         @auth
-                        <li class="first"><a class="nav-link" href="/catalogue/public/user/favori">Favoris</a></li>
-                        <li class="first"><a class="nav-link" href="/catalogue/public/user/playlist">Playlists</a></li>
+                        <li class="first"><a class="nav-link" href="../user/favori">Favoris</a></li>
+                        <li class="first"><a class="nav-link" href="../user/playlist">Playlists</a></li>
                         @endauth
                     </ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">
@@ -220,7 +220,7 @@
                             <img src="{{$media->avatar}}" alt="">
                         </div>
                         <div class="hvr-inner">
-                            <a  href="/catalogue/public/medias/{{$media->id}}"> Voir plus <i class="ion-android-arrow-dropright"></i> </a>
+                            <a  href="../medias/{{$media->id}}"> Voir plus <i class="ion-android-arrow-dropright"></i> </a>
                         </div>
 							<div class="mv-item-infor">
 								<h6><a href="#">{{$media->name}}</a></h6>
@@ -373,7 +373,7 @@
 	<div class="container">
 		<div class="flex-parent-ft">
 			<div class="flex-child-ft item1" style="margin-left: auto;margin-right: auto;text-align: center;">
-				 <a href="#"><img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="200" height="10"></a>
+				 <a href="#"><img class="logo" src="../images/netflex_logo.png" alt="" width="200" height="10"></a>
 				 <p>ayoubmn<br>abdou</p>
 				<h4>CDAW 2021</h4>
 			</div>

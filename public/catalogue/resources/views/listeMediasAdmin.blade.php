@@ -22,10 +22,10 @@
 
 <div class="page-single">
     <div class="container" style="text-align:center;margin-bottom: 2rem;">
-        <a href="/catalogue/public/admin/addMedias"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Ajouter un film <span class="ion-ios-arrow-right"></span></button></a>
+        <a href="../admin/addMedias"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Ajouter un film <span class="ion-ios-arrow-right"></span></button></a>
 	</div>
     <div class="container" style="text-align:center;margin-bottom: 2rem;">
-        <a href="/catalogue/public/admin/usersManage"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Gerer les utilisateur<span class="ion-ios-arrow-right"></span></button></a>
+        <a href="../admin/usersManage"><button  class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">Gerer les utilisateur<span class="ion-ios-arrow-right"></span></button></a>
 
 	</div>
 	<div class="container">
@@ -48,10 +48,10 @@
                     <div class="movie-item-style-2 movie-item-style-1">
                         <img src="{{$mymedia->avatar}}" alt="">
                         <div class="hvr-inner" style="margin-top: 70px;margin-left: 50px;">
-                            <a href="/catalogue/public/admin/deleteMedias/{{$mymedia->id}}" class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
+                            <a href="../admin/deleteMedias/{{$mymedia->id}}" class="btn btn-danger " role="button" aria-pressed="true">Delete</a>
                         </div>
                         <div class="hvr-inner" style="background-color:#0097FC;margin-top: 140px;margin-left: 50px;">
-                            <a href="/catalogue/public/admin/addMedias/{{$mymedia->id}}" class="btn btn-info " role="button" aria-pressed="true">Update</a>
+                            <a href="../admin/addMedias/{{$mymedia->id}}" class="btn btn-info " role="button" aria-pressed="true">Update</a>
                         </div>
                         <div class="mv-item-infor">
                             <h6><a href="#">{{$mymedia->name}}</a></h6>

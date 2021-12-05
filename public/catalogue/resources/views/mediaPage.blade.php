@@ -24,20 +24,22 @@
 		@csrf
 			<h6>Veuillez choisir une playlist</h6>
 			</br>
+			@if(!empty($playlists))
 			<select name="id_playlist" id="pet-select">
 				@foreach($playlists as $playlist)
 					test
 					<option value="{{$playlist->id_playlist}}">{{$playlist->title}}</option>
 				@endforeach
 			</select>
+			@endif
 			<input name="id_media" id="id_media" value="{{$Media->id}}" type="hidden">
 
 			</br>			
-			<button type="submit" formaction="/catalogue/public/user/addToPlaylist" class="btn">Ajouter</button>
+			<button type="submit" formaction="../user/addToPlaylist" class="btn">Ajouter</button>
 		</form>
 		<form action="/" class="form-container" method="GET">
 		@csrf
-			<button type="submit" formaction="/catalogue/public/user/playlist" class="btn">Crée une nouvelle</button>
+			<button type="submit" formaction="../user/playlist" class="btn">Crée une nouvelle</button>
 			<button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
 		</form>
 	</div>
@@ -102,6 +104,7 @@
 													<a class="fancybox-media hvr-grow" href="https://www.youtube.com/embed/o-0hcF97wy0"><img src="images/uploads/play-vd.png" alt=""></a>
 												</div>
 											</div>
+											@if(!empty($actors))
 											<div class="title-hd-sm">
 												<h4>cast</h4>
 												<a href="#" class="time">Les acteurs  <i class="ion-ios-arrow-right"></i></a>
@@ -116,9 +119,8 @@
 													</div>
 												</div>
 												@endforeach
-
 											</div>
-
+											@endif
 											<!-- movie user review -->
 											<div class="mv-user-review-item">
 												<h3>Best Marvel movie in my opinion</h3>
