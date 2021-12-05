@@ -148,7 +148,7 @@
 						<div class="social-btn">
 							<a href="{{$Media->url}}" class="parent-btn"><i class="ion-play"></i> Regarder la bande annonce</a>
                             @auth
-							<a href="#" class="parent-btn"><i class="ion-heart"></i> Ajouter au Favorite</a>
+							<a href="user/addFavori/{{$Media->id}}" class="parent-btn"><i class="ion-heart"></i> Ajouter au Favorite</a>
                             @endauth
 							<div class="hover-bnt">
 								<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>partager</a>
@@ -175,35 +175,6 @@
 	    </div>
 	</div>
 </div>
-
-<!--
-<div style="padding: 70px 0;background-color: #020d18;">
-    <div class="container px-4 px-lg-5 mt-5" >
-        <div  class="movie-items" style="display:flex;flex-direction: row;flex-wrap: wrap;  gap: 3rem;">
-            @foreach($Medias as $Media)
-            <div class="item col card card-body">
-                <div class="slide-it">
-                    <div class="movie-item">
-                        <div class="mv-img">
-                            <img src="{{$Media->avatar}}" alt="" width="285" height="384">
-                        </div>
-                        <div class="hvr-inner">
-                            <a  href="{{$Media->url}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
-                        </div>
-                        <div class="title-in">
-                            <h6><a href="#">{{$Media->name}}</a></h6>
-                            <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endforeach
-        </div>
-    </div>
-</div>
--->
-
-
 
 
 <div class="page-single">

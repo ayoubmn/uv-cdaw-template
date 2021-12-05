@@ -64,7 +64,7 @@
 					<h1 class="bd-hd">{{$Media->name}} <span>{{$Media->date}}</span></h1>
 					<div class="social-btn">
                         @auth
-						<a href="#" class="parent-btn"><i class="ion-heart"></i> Ajouter au Favoris</a>
+						<a href="../user/addFavori/{{$Media->id}}" class="parent-btn"><i class="ion-heart"></i> Ajouter au Favoris</a>
 						<a href="#" onclick="openForm()" class="parent-btn"><i class="ion-ios-list"></i> Ajouter a une Playlist</a>
 
                         @endauth

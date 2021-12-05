@@ -9,6 +9,7 @@ use App\Http\Controllers\mediaController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\userController;
 use App\Http\Controllers\commentController;
+use App\Http\Controllers\favoriController;
 use Illuminate\Http\Request;
 
 
@@ -75,8 +76,9 @@ Route::name('user')
     Route::post('/update',[userController::class, 'updateUser'] );
     Route::post('/updateAvatar',[userController::class, 'updateUserAvatar'] );
     
-    Route::get('/favori',[userController::class, 'getUserFavori'] );
-    Route::post('/favori',[userController::class, 'postUserFavori'] );
+    Route::get('addFavori/{Media}',[favoriController::class, 'addFavori'] );
+    Route::get('removeFavori/{Media}',[favoriController::class, 'removeFavori'] );
+    Route::get('/favori',[favoriController::class, 'getAllFavori'] );
     
     Route::get('/playlist',[userController::class, 'getUserPlaylist'] );
 
