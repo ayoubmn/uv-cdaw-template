@@ -51,7 +51,7 @@
 					<img src="{{$Media->avatar}}" alt="">
 					<div class="movie-btn">	
 						<div class="btn-transform transform-vertical red">
-							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a></div>
+							<div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Regarde la bande-annonce</a></div>
 							<div><a href="{{$Media->url}}" class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a></div>
 						</div>
 					</div>
@@ -62,12 +62,12 @@
 					<h1 class="bd-hd">{{$Media->name}} <span>{{$Media->date}}</span></h1>
 					<div class="social-btn">
                         @auth
-						<a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
-						<a href="#" onclick="openForm()" class="parent-btn"><i class="ion-ios-list"></i> Add to a Playlist</a>
+						<a href="#" class="parent-btn"><i class="ion-heart"></i> Ajouter au Favoris</a>
+						<a href="#" onclick="openForm()" class="parent-btn"><i class="ion-ios-list"></i> Ajouter a une Playlist</a>
 
                         @endauth
 						<div class="hover-bnt">
-							<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
+							<a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>partager</a>
 							<div class="hvr-item">
 								<a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
 								<a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
@@ -86,7 +86,7 @@
 					<div class="movie-tabs">
 						<div class="tabs">
 							<ul class="tab-links tabs-mv">
-								<li class="active"><a href="#overview">Overview</a></li>
+								<li class="active"><a href="#overview">Détails</a></li>
 							</ul>
 						    <div class="tab-content">
 						        <div id="overview" class="tab active">
@@ -104,66 +104,19 @@
 											</div>
 											<div class="title-hd-sm">
 												<h4>cast</h4>
-												<a href="#" class="time">Full Cast & Crew  <i class="ion-ios-arrow-right"></i></a>
+												<a href="#" class="time">Les acteurs  <i class="ion-ios-arrow-right"></i></a>
 											</div>
 											<!-- movie cast -->
-											<div class="mvcast-item">											
+											<div class="mvcast-item">	
+												@foreach($actors as $actor)										
 												<div class="cast-it">
 													<div class="cast-left">
 														<img src="images/uploads/cast1.jpg" alt="">
-														<a href="#">Robert Downey Jr.</a>
+														<a href="#"> {{$actor->prenom}}&#32;&#32;{{$actor->nom}}</a>
 													</div>
-													<p>...  Robert Downey Jr.</p>
 												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast2.jpg" alt="">
-														<a href="#">Chris Hemsworth</a>
-													</div>
-													<p>...  Thor</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast3.jpg" alt="">
-														<a href="#">Mark Ruffalo</a>
-													</div>
-													<p>...  Bruce Banner/ Hulk</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast4.jpg" alt="">
-														<a href="#">Chris Evans</a>
-													</div>
-													<p>...  Steve Rogers/ Captain America</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast5.jpg" alt="">
-														<a href="#">Scarlett Johansson</a>
-													</div>
-													<p>...  Natasha Romanoff/ Black Widow</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast6.jpg" alt="">
-														<a href="#">Jeremy Renner</a>
-													</div>
-													<p>...  Clint Barton/ Hawkeye</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast7.jpg" alt="">
-														<a href="#">James Spader</a>
-													</div>
-													<p>...  Ultron</p>
-												</div>
-												<div class="cast-it">
-													<div class="cast-left">
-														<img src="images/uploads/cast9.jpg" alt="">
-														<a href="#">Don Cheadle</a>
-													</div>
-													<p>...  James Rhodes/ War Machine</p>
-												</div>
+												@endforeach
+
 											</div>
 
 											<!-- movie user review -->
@@ -189,15 +142,15 @@
 						            	</div>
 						            	<div class="col-md-4 col-xs-12 col-sm-12">
 						            		<div class="sb-it">
-						            			<h6>Director: </h6>
+						            			<h6>Realisateur: </h6>
 						            			<p><a href="#">{{$Media->realisateur}}</a></p>
 						            		</div>
 						            		<div class="sb-it">
-						            			<h6>Release Date:</h6>
+						            			<h6>Date de sortie:</h6>
 						            			<p>{{$Media->date}}</p>
 						            		</div>
 						            		<div class="sb-it">
-						            			<h6>Run Time:</h6>
+						            			<h6>Durée:</h6>
 						            			<p>{{$Media->duree}}</p>
 						            		</div>
 						            		<div class="sb-it">

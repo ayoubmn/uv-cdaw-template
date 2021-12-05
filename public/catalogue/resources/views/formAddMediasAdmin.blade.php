@@ -2,6 +2,27 @@
 @extends('templateUser')
 @section('formContentMediasAdmin')
 
+<link rel="stylesheet" href="/catalogue/public/css/form.css">
+
+<!-------------------------------------------->
+<div class="playlist-popup">
+	<div class="form-popup" id="popupForm">
+		<form action="/catalogue/public/admin/addActor" class="form-container" method="POST" >
+		@csrf
+			<h6>Veuillez remplir le données</h6>
+			</br>
+			<input name="nom" id="nom" placeholder="nom" style="padding: 12px 20px;">
+            <br/>
+			<input name="prenom" id="prenom" placeholder="prenom"  style="padding: 12px 20px;">
+			</br>			
+			<button type="submit" formaction="/catalogue/public/admin/addActor" class="btn">Ajouter</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Fermer</button>
+
+		</form>
+
+	</div>
+</div>
+
 <div class="hero user-hero">
 	<div class="container">
 		<div class="row">
@@ -28,7 +49,7 @@
                 </div>
                 <div class="form-group">
                     <label for="type">Type</label></br>
-                    <label class="radio-inline"><input type="radio" name="type" value="Film" checked>Film&#32;</label>
+                    <label class="radio-inline"  style='margin-left:2rem;'><input type="radio" name="type" value="Film" checked>Film&#32;</label>
                     <label class="radio-inline"><input type="radio" name="type" value="Serie">Serie&#32;</label>
                     <label class="radio-inline"><input type="radio" name="type" value="Anime">Anime</label>
 
@@ -40,7 +61,7 @@
                 <div class="form-group">
                     <label for="category">Category</label></br>
                     @foreach($categories as $cat)
-                    <div class="form-check form-check-inline">
+                    <div class="form-check form-check-inline" style='margin-left:2rem;'>
                         <input class="form-check-input" name="category[]" type="checkbox" id={{$cat->name}} value={{$cat->name}}>
                         <label class="form-check-label" for={{$cat->name}}>{{$cat->name}}</label>
                     </div>
@@ -49,6 +70,33 @@
                 <div class="form-group">
                     <label for="avater">Avatar</label>
                     <input type="text" class="form-control" id="avatar" name="avatar" placeholder="Avatar">
+                </div>
+                <div class="form-group">
+                    <label for="avater">Actors</label>
+                    <div class="row item ">
+                        <div class="multi-selector column">
+                            <div class="select-field">
+                                <!--<input type="text" name="" placeholder="Choose tasks" id="" class="input-selector">-->
+                                <span class="down-arrow">&blacktriangledown; Choose actors</span>
+                            </div>
+                            <!---------List of checkboxes and options----------->
+                            <div class="list">
+                                @foreach($actors as $actor)
+                                <label for="{{$actor->nom}}" class="task">
+                                        <input type="checkbox" name="actor[]" id="{{$actor->nom}}" value="{{$actor->id}}">
+                                        {{$actor->prenom}}&#32;&#32;{{$actor->nom}}
+                                </label>
+                                @endforeach
+                            </div>
+                            <!--<input type="button" onclick="multipleFunc()" value="Select multiple options">-->
+                        </div>
+                        <div class="column item">
+                            <div class="" style="text-align:center;margin-bottom: 2rem;">
+                               <button  type="button" onclick="openForm()" class="button" style="background-color: #4280bf;color: white;border: none;width: 40%;border-radius: 1rem;font-size: larger;">New Actor <span class="ion-ios-arrow-right"></span></button>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
                 <div class="form-group">
                     <label for="date">Date</label>
@@ -137,6 +185,23 @@
         </div>
     @endif
 </div>
+
+    <script>
+     document.querySelector('.select-field').addEventListener('click',()=>{
+         document.querySelector('.list').classList.toggle('show');
+         document.querySelector('.down-arrow').classList.toggle('rotate180');
+
+     });
+
+	function openForm() {
+	    document.getElementById("popupForm").style.display="block";
+
+	}
+	
+	function closeForm() {
+	    document.getElementById("popupForm").style.display="none";
+	}
+    </script>
 @stop
 
 

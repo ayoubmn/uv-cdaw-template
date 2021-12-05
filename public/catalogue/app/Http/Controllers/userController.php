@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Favori;
 use App\Models\Playlists;
 use App\Models\ListedVideo;
+use App\Models\AbonnementPlaylist;
 
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -59,6 +60,7 @@ public function postUserFavori(Request $request) {
 }
 
 
+//-------------------------playlist---------------------------
 public function getUserPlaylist(Request $request) {
     $cat=Category::all();
     $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
@@ -68,21 +70,49 @@ public function getUserPlaylist(Request $request) {
     ->join('listed_video', 'media.id', '=', 'listed_video.id_media')
     ->get();
 
-    return view('playlist', ['categories' => $cat,'playlists' => $playlists,'Media'=>$media]);
+    $abonnemet = DB::table('playlists')
+    ->select('*')
+    ->join('abonnement_playlist', 'playlists.id_playlist', '=', 'abonnement_playlist.id_playlist')
+    ->where('id_user', Auth::user()->id)
+    ->get();
+
+    return view('playlist', ['categories' => $cat,'playlists' => $playlists,'abonnements'=>$abonnemet,'Media'=>$media]);
 }
+
 
 public function postUserPlaylist(Request $request) {
     Playlists::updateOrCreate(['creator_id' => Auth::user()->id,'title' => $request->title]);    
     $cat=Category::all();
-
-    $playlists=Playlists::all();
-    return view('playlist', ['playlists' => $playlists,'categories' => $cat]);
+    $media = DB::table('media')
+    ->select('*')
+    ->join('listed_video', 'media.id', '=', 'listed_video.id_media')
+    ->get();
+    $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
+    return view('playlist', ['playlists' => $playlists,'categories' => $cat,"Media"=>$media]);
 }
 
 public function postToUsersPlaylist(Request $request) {
     ListedVideo::updateOrCreate(['id_playlist' => $request->id_playlist,'id_media' => $request->id_media]); 
     $link="/medias/".strval($request->id_media);
     return redirect($link);
+}
+
+public function allPlaylists(Request $request) {
+    $cat=Category::all();
+
+    $playlists=Playlists::where('title','like','%'.$request->name.'%')->where('creator_id','<>',Auth::user()->id)->get();
+
+    $media = DB::table('media')
+    ->select('*')
+    ->join('listed_video', 'media.id', '=', 'listed_video.id_media')
+    ->get();
+    
+    return view('searchPlaylist', ['categories' => $cat,'playlists' => $playlists,'Media'=>$media]);
+}
+
+public function postAbonnementPlaylist(Request $request) {
+    AbonnementPlaylist::updateOrCreate(['id_playlist' => $request->id_playlist,'id_user' => Auth::user()->id]); 
+    return back()->with('status', "Successfully submitted !");
 }
 
 }

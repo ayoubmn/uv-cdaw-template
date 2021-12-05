@@ -8,6 +8,8 @@ use App\Models\Media;
 use App\Models\Media_Categorie;
 use App\Models\Playlists;
 use App\Models\Favori;
+use App\Models\Historique;
+
 use Auth;
 use DB;
 
@@ -23,10 +25,38 @@ public function getMedia(Request $request) {
     ->select('*')
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
-    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists]);}
+    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists]);
+    
+    $actors = DB::table('media_actor')
+    ->select('*')
+    ->join('actor', 'media_actor.actor_id', '=', 'actor.id')
+    ->where('media_actor.media_id',$Media->id)
+    ->get();
 
 
+    if (Auth::check()) {
+        Historique::updateOrCreate(['id_user' => Auth::user()->id,'id_media' => $Media->id]);    
+    }
 
+    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media,'playlists' => $playlists,'actors'=>$actors]);
+}
+
+public function getMediaByCategorie(Request $request) {
+    //\Debugbar::error('hi');
+    $cat_name=Category::all();
+    $Media = DB::table('media_categories')
+    ->select('*')
+    ->join('media', 'media.id', '=', 'media_categories.id_media')
+    ->where('nom_cat',$request->Category)
+    ->paginate(8);
+
+    $cat = DB::table('media_categories')
+    ->select('*')
+    ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
+    ->get();
+
+    return view('mediaByCategory', ['categories' => $cat_name,'cat_name' => $cat,'Medias' => $Media]);
+}
 
 }
 

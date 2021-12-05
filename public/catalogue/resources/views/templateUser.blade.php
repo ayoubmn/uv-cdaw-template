@@ -18,7 +18,6 @@
 	<meta name=viewport content="width=device-width, initial-scale=1">
 	<meta name="format-detection" content="telephone-no">
 
-    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
 
     <!-- Core theme CSS (includes Bootstrap)
     <link href="css/index.css" rel="stylesheet" />-->
@@ -45,8 +44,7 @@
 				    </div>
 				    <a href="/catalogue/public">
                         <div class="row">
-                        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0c/Netflix_2015_N_logo.svg/1200px-Netflix_2015_N_logo.svg.png" alt="" width="20" height="30">
-                         <h6>NetFlex</h6>
+                        <img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="100" height="50">
 
                         </div>
                     </a>
@@ -59,11 +57,11 @@
 						</li>
 						<li class="dropdown first">
 							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-							Category <i class="fa fa-angle-down" aria-hidden="true"></i>
+							Categorie <i class="fa fa-angle-down" aria-hidden="true"></i>
 							</a>
 							<ul class="dropdown-menu level1">
                                 @foreach($categories as $cat)
-								<li><a href="#">{{$cat->name}}</a></li>
+								<li><a href="/catalogue/public/category/{{$cat->name}}">{{$cat->name}}</a></li>
                                 @endforeach
 							</ul>
 						</li>	
@@ -76,7 +74,7 @@
                         @auth
                             <!-- Authentication -->
                         <h6 style="color:white;margin-right:0.5em;">
-                            Welcome 
+                            Bienvenue 
                             <a href="/catalogue/public/user/profile">
                                 {{ Auth::user()->nom }}
 							</a>
@@ -87,15 +85,15 @@
                                 <x-jet-dropdown-link href="{{ route('logout') }}"
                                          onclick="event.preventDefault();
                                                 this.closest('form').submit();">
-						            logout
+						            se déconnecter
                                 </x-jet-dropdown-link>
                             </form>
                         </li>
                         @else
 						<!--<li class=""><a href="login/" id="login">LOG In</a></li>
 						<li class="btn "><a href="register/" id='register'>sign up</a></li>-->
-						<li class="loginLink"><a href="#">LOG In</a></li>
-						<li class="btn signupLink"><a href="#">sign up</a></li>
+						<li class="loginLink"><a href="#">Connexion</a></li>
+						<li class="btn signupLink"><a href="#">S'inscrire</a></li>
 
                         @endauth
 					</ul>
@@ -114,64 +112,21 @@
 
 	@yield('contentPlaylist')
 
+	@yield('contentMediaByCategory')
 
 <!--end of latest new v1 section-->
 <!-- footer section-->
 <footer class="ht-footer">
 	<div class="container">
 		<div class="flex-parent-ft">
-			<div class="flex-child-ft item1">
-				 <a href="index-2.html"><img class="logo" src="images/logo1.png" alt=""></a>
-				 <p>5th Avenue st, manhattan<br>
-				New York, NY 10001</p>
-				<p>Call us: <a href="#">(+01) 202 342 6789</a></p>
-			</div>
-			<div class="flex-child-ft item2">
-				<h4>Resources</h4>
-				<ul>
-					<li><a href="#">About</a></li> 
-					<li><a href="#">Blockbuster</a></li>
-					<li><a href="#">Contact Us</a></li>
-					<li><a href="#">Forums</a></li>
-					<li><a href="#">Blog</a></li>
-					<li><a href="#">Help Center</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item3">
-				<h4>Legal</h4>
-				<ul>
-					<li><a href="#">Terms of Use</a></li> 
-					<li><a href="#">Privacy Policy</a></li>	
-					<li><a href="#">Security</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item4">
-				<h4>Account</h4>
-				<ul>
-					<li><a href="#">My Account</a></li> 
-					<li><a href="#">Watchlist</a></li>	
-					<li><a href="#">Collections</a></li>
-					<li><a href="#">User Guide</a></li>
-				</ul>
-			</div>
-			<div class="flex-child-ft item5">
-				<h4>Newsletter</h4>
-				<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
-				<form action="#">
-					<input type="text" placeholder="Enter your email...">
-				</form>
-				<a href="#" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+			<div class="flex-child-ft item1" style="margin-left: auto;margin-right: auto;text-align: center;">
+				 <a href="#"><img class="logo" src="/catalogue/public/images/netflex_logo.png" alt="" width="200" height="10"></a>
+				 <p>ayoubmn<br>abdou</p>
+				<h4>CDAW 2021</h4>
 			</div>
 		</div>
 	</div>
-	<div class="ft-copyright">
-		<div class="ft-left">
-			<p><a target="_blank" href="https://www.templateshub.net">Templates Hub</a></p>
-		</div>
-		<div class="backtotop">
-			<p><a href="#" id="back-to-top">Back to top  <i class="ion-ios-arrow-thin-up"></i></a></p>
-		</div>
-	</div>
+
 </footer>
 <!-- end of footer section-->
 

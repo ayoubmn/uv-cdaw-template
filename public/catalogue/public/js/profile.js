@@ -76,4 +76,20 @@ $(document).ready(function (e) {
             }
         });
     });
+
 });
+/*
+//display avater save button
+$(document).ready(function () {
+    $(".custom-file-upload").click(function () {
+        document.getElementById('avatarUpload').style.display = "block";
+        alert('okok');
+    });
+
+    $(".custom-file-upload").change(function () {
+        document.getElementById('avatarUpload').style.display = "block";
+        alert('okok');
+    });
+});
+*/
+
