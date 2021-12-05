@@ -9,6 +9,7 @@ use App\Models\Media_Categorie;
 use App\Models\Playlists;
 use App\Models\Favori;
 use App\Models\Historique;
+use App\Models\Comment;
 
 use Auth;
 use DB;
@@ -19,6 +20,7 @@ public function getMedia(Request $request) {
     $favoris=null;
     $playlists=null;
     $Media = Media::where("id",$request->Media)->first();
+
     //\Debugbar::error('hi');
     $cat_name=Category::all();
     $cat = DB::table('media_categories')
@@ -32,6 +34,11 @@ public function getMedia(Request $request) {
     ->where('media_actor.media_id',$Media->id)
     ->get();
 
+    $comments = DB::table('users')
+    ->select('*')
+    ->join('comment', 'users.id', '=', 'comment.user_id')
+    ->where("media_id",$Media->id)
+    ->paginate(5);
 
     if (Auth::check()) {
         Historique::updateOrCreate(['id_user' => Auth::user()->id,'id_media' => $Media->id]);
@@ -39,7 +46,7 @@ public function getMedia(Request $request) {
         $favoris=Favori::where('user_id', Auth::user()->id)->get();
     }
 
-    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists,'actors'=>$actors]);
+    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists,'actors'=>$actors,'comments'=>$comments]);
 }
 
 public function getMediaByCategorie(Request $request) {

@@ -89,6 +89,8 @@
 						<div class="tabs">
 							<ul class="tab-links tabs-mv">
 								<li class="active"><a href="#overview">Détails</a></li>
+								<li><a href="#reviews"> Avis</a></li>
+
 							</ul>
 						    <div class="tab-content">
 						        <div id="overview" class="tab active">
@@ -106,8 +108,7 @@
 											</div>
 											@if(!empty($actors))
 											<div class="title-hd-sm">
-												<h4>cast</h4>
-												<a href="#" class="time">Les acteurs  <i class="ion-ios-arrow-right"></i></a>
+												<h4>Les acteurs</h4>
 											</div>
 											<!-- movie cast -->
 											<div class="mvcast-item">	
@@ -121,26 +122,22 @@
 												@endforeach
 											</div>
 											@endif
-											<!-- movie user review -->
-											<div class="mv-user-review-item">
-												<h3>Best Marvel movie in my opinion</h3>
-												<div class="no-star">
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star"></i>
-													<i class="ion-android-star last"></i>
-												</div>
-												<p class="time">
-													17 December 2016 by <a href="#"> hawaiipierson</a>
-												</p>
-												<p>This is by far one of my favorite movies from the MCU. The introduction of new Characters both good and bad also makes the movie more exciting. giving the characters more of a back story can also help audiences relate more to different characters better, and it connects a bond between the audience and actors or characters. Having seen the movie three times does not bother me here as it is as thrilling and exciting every time I am watching it. In other words, the movie is by far better than previous movies (and I do love everything Marvel), the plotting is splendid (they really do out do themselves in each film, there are no problems watching it more than once.</p>
+											<!-- movie add comment -->
+											@auth
+											<div class="title-hd-sm">
+												<h4>Commentaire</h4>
 											</div>
+											<div class="mv-user-review-item">
+												<form action="../user/addComment" method="post">
+												@csrf
+													<input type="hidden" value="{{$Media->id}}" name="media_id">
+													<textarea class="comment" name="text" style="min-height:10rem;" placeholder="Tapez votre commentaire ici ." ></textarea>
+													<br>
+													<input class="btn" type="submit" value="Publier" style="  background-color: #4c6baf;border: none;color: white;padding: 8px 16px;text-decoration: none;margin: 4px 2px;cursor: pointer;">
+
+												</form>
+											</div>
+											@endauth
 						            	</div>
 						            	<div class="col-md-4 col-xs-12 col-sm-12">
 						            		<div class="sb-it">
@@ -171,7 +168,35 @@
 						            	</div>
 						            </div>
 						        </div>
+    							<div id="reviews" class="tab review">
+						           <div class="row">
 
+						            	<div class="topbar-filter">
+											<p><span>{{$comments->total()}}</span> élements au totale</p>
+										</div>
+										@foreach($comments as $comment)
+										<div class="mv-user-review-item">
+											<div class="user-infor">
+												<img src="{{$comment->profile_photo_path}}" alt="">
+												<div>
+													<h3>{{$comment->nom}}&#32;{{$comment->prenom}}</h3>
+													<p class="time">
+														{{$comment->created_at}}
+													</p>
+												</div>
+											</div>
+											<p>{{$comment->text}}</p>
+										</div>
+										@endforeach
+										<div class="topbar-filter">
+											<div class="pagination2" style="display: contents;">
+												<span>Page {!! $comments->currentPage() !!} of {!! $comments->lastPage() !!}:</span>
+												{!! $comments->links() !!}
+											</div>
+										</div>
+						            </div>
+						        </div>
+						      
 						    </div>
 						</div>
 					</div>

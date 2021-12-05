@@ -8,6 +8,7 @@ use App\Models\Media_Categorie;
 use App\Http\Controllers\mediaController;
 use App\Http\Controllers\adminController;
 use App\Http\Controllers\userController;
+use App\Http\Controllers\commentController;
 use Illuminate\Http\Request;
 
 
@@ -93,6 +94,9 @@ Route::name('user')
         return redirect('/user/playlist');
     });
 
+    Route::post('/addComment',[commentController::class, 'postComment'] );
+
+
   });
 
 
@@ -139,15 +143,5 @@ Route::name('admin')
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return redirect('/');
-    $Media=Media::paginate(8);;
-    //\Debugbar::error('hi');
-    $cat_name=Category::all();
-    $cat = DB::table('media_categories')
-    ->select('*')
-    ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
-    ->get();
-
-    
-    return view('indexUser', ['categories' => $cat,'cat_name' => $cat_name,'Medias' => $Media]);
 })->name('dashboard');
 

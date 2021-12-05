@@ -259,32 +259,7 @@
 										</select>
 									</div>	
 								</div>
-								<!--
-								<div class="col-md-12 form-it">
-									<label>Rating Range</label>
-									<select>
-									  <option value="range">-- Select the rating range below --</option>
-									  <option value="saab">-- Select the rating range below --</option>
-									</select>
-								</div>
-								<div class="col-md-12 form-it">
-									<label>Release Year</label>
-									<div class="row">
-										<div class="col-md-6">
-											<select>
-											  <option value="range">From</option>
-											  <option value="number">10</option>
-											</select>
-										</div>
-										<div class="col-md-6">
-											<select>
-											  <option value="range">To</option>
-											  <option value="number">20</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								-->
+
 								<div class="col-md-12 ">
 									<input class="submit" type="submit" value="Recherche">
 								</div>
@@ -297,75 +272,7 @@
 		</div>
 	</div>
 </div>
-<!--
-<div style="padding: 70px 0;background-color: #020d18;">
-    <div class="container px-4 px-lg-5 mt-5" >
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            @foreach($Medias as $Media)
-                <div class="col card card-body">
-                    <div class="slide-it">
-                        <div class="movie-item">
-                            <div class="mv-img">
-                                <img src="images/uploads/mv-item1.jpg" alt="" width="185" height="284">
-                            </div>
-                            <div class="hvr-inner">
-                                <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
-                            </div>
-                            <div class="title-in">
-                                <h6><a href="#">Interstellar</a></h6>
-                                <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-    </div>
-</div>
 
-
-
-<div class="movie-items">
-	<div class="container">
-		<div class=" ipad-width">
-			<div class="col-md-8">
-				<div class="title-hd">
-					<h2>Watch now</h2>
-					<a href="#" class="viewall">View all <i class="ion-ios-arrow-right"></i></a>
-				</div>
-            <div class="container-fluid">
-                <div class="row row-cols-4">
-                    @foreach($Medias as $Media)
-                    <a style="text-decoration:none;">
-                        <div class="col card card-body">
-                            <div class="slide-it">
-                                <div class="movie-item">
-                                    <div class="mv-img">
-                                        <img src="images/uploads/mv-item1.jpg" alt="" width="185" height="284">
-                                    </div>
-                                    <div class="hvr-inner">
-                                        <a  href="moviesingle.html"> Read more <i class="ion-android-arrow-dropright"></i> </a>
-                                    </div>
-                                    <div class="title-in">
-                                        <h6><a href="#">Interstellar</a></h6>
-                                        <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                    @endforeach
-                </div>
-            </div>
-
-
-			</div>
-
-		</div>
-	</div>
-</div>
-
--->
 
 <!--end of latest new v1 section-->
 <!-- footer section-->
