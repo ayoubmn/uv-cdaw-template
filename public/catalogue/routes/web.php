@@ -54,7 +54,8 @@ Route::name('user')
     Route::post('/update',[userController::class, 'updateUser'] );
     Route::post('/updateAvatar',[userController::class, 'updateUserAvatar'] );
     
-    
+    Route::get('/favori',[userController::class, 'getUserFavori'] );
+    Route::post('/favori',[userController::class, 'postUserFavori'] );
     
     Route::get('/playlist',[userController::class, 'getUserPlaylist'] );
     Route::post('/playlist',[userController::class, 'postUserPlaylist'] );

@@ -16,13 +16,14 @@ class mediaController extends Controller
 public function getMedia(Request $request) {
     $Media = Media::where("id",$request->Media)->first();
     $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
+    $favoris=Favori::where('user_id', Auth::user()->id)->get();
     //\Debugbar::error('hi');
     $cat_name=Category::all();
     $cat = DB::table('media_categories')
     ->select('*')
     ->join('categories', 'categories.name', '=', 'media_categories.nom_cat')
     ->get();
-    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media,'playlists' => $playlists]);}
+    return view('mediaPage', ['categories' => $cat_name,'cat_name' => $cat,'Media' => $Media, 'favoris' => $favoris,'playlists' => $playlists]);}
 
 
 
