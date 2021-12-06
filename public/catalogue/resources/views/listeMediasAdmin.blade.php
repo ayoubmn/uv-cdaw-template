@@ -33,15 +33,6 @@
 			<div class="col-md-12 col-sm-12 col-xs-12">
 				<div class="topbar-filter fw">
 					<p>Found <span>{{$media->total()}}</span> in total</p>
-					<label>Sort by:</label>
-					<select>
-						<option value="popularity">Popularity Descending</option>
-						<option value="popularity">Popularity Ascending</option>
-						<option value="rating">Rating Descending</option>
-						<option value="rating">Rating Ascending</option>
-						<option value="date">Release date Descending</option>
-						<option value="date">Release date Ascending</option>
-					</select>
 				</div>
 				<div class="flex-wrap-movielist mv-grid-fw">
                 @foreach($media as $mymedia)

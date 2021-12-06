@@ -68,6 +68,9 @@
                         @auth
                         <li class="first"><a class="nav-link" href="../user/favori">Favoris</a></li>
                         <li class="first"><a class="nav-link" href="../user/playlist">Playlists</a></li>
+						@if(auth()->user()->role==1)
+						<li class="first"><a class="nav-link" href="../admin/listeMedias">Dashboard</a></li>
+						@endif
                         @endauth
                     </ul>
 					<ul class="nav navbar-nav flex-child-menu menu-right">

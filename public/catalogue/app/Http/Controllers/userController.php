@@ -69,7 +69,7 @@ public function postUserPlaylist(Request $request) {
     ->join('listed_video', 'media.id', '=', 'listed_video.id_media')
     ->get();
     $playlists=Playlists::where('creator_id', Auth::user()->id)->get();
-    return view('playlist', ['playlists' => $playlists,'categories' => $cat,"Media"=>$media]);
+    return back()->with('status', "Successfully submitted !");
 }
 
 public function postToUsersPlaylist(Request $request) {
